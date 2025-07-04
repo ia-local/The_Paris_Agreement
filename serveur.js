@@ -17,10 +17,10 @@ const app = express();
 const port = 5007; // Définit le port sur lequel le serveur écoutera
 
 // Configure Express pour servir les fichiers statiques du répertoire 'public'
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 // Définit une route pour la page d'accueil (racine de l'application '/').
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'docs', 'index.html'));
 });
 
 // Middleware pour parser le corps des requêtes en JSON
