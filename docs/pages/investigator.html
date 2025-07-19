@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Enquêteur - Bioclimat</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Dashboard Enquêteur</h1>
+        <button id="openChatbotBtn">Ouvrir Chatbot</button>
+    </div>
+
+    <div class="main-nav">
+        <ul>
+            <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="./journalist.html"><i class="fas fa-newspaper"></i> Journaliste</a></li>
+            <li><a href="./whistleblower.html"><i class="fas fa-bullhorn"></i> Lanceur d'alerte</a></li>
+            <li><a href="./scientist.html"><i class="fas fa-flask"></i> Scientifique</a></li>
+            <li><a href="#" class="active"><i class="fas fa-magnifying-glass"></i> Enquêteur</a></li>
+        </ul>
+    </div>
+
+    <div class="main-layout-columns container">
+        <aside class="aside-column">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#recherche" class="active"><i class="fas fa-search"></i> Outils de Recherche</a></li>
+                    <li><a href="#dossiers"><i class="fas fa-folder-open"></i> Gestion des Dossiers</a></li>
+                    <li><a href="#collaboration"><i class="fas fa-handshake"></i> Collaboration Justice</a></li>
+                    <li><a href="#rapports"><i class="fas fa-chart-line"></i> Rapports d'Enquête</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-column">
+            <section id="recherche" class="content-section active">
+                <h2 class="section-title">Outils de Recherche</h2>
+                <p>Accédez à des bases de données spécialisées, des archives et des outils d'analyse de données pour mener vos investigations.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Recherche Avancée</h3>
+                    <form>
+                        <div>
+                            <label for="keywords">Mots-clés :</label>
+                            <input type="text" id="keywords" name="keywords" placeholder="Ex: fraude, corruption, impact environnemental">
+                        </div>
+                        <div>
+                            <label for="sources">Sources :</label>
+                            <input type="text" id="sources" name="sources" placeholder="Ex: rapports gouvernementaux, presse, réseaux sociaux">
+                        </div>
+                        <button type="submit" class="btn-primary">Lancer la recherche</button>
+                    </form>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Analyse Sémantique</h3>
+                    <p>Utilisez l'intelligence artificielle pour identifier des corrélations et des anomalies dans de grands volumes de texte.</p>
+                    <button class="btn-primary">Analyser des documents</button>
+                </div>
+            </section>
+
+            <section id="dossiers" class="content-section">
+                <h2 class="section-title">Gestion des Dossiers</h2>
+                <p>Organisez et suivez l'avancement de vos enquêtes, centralisez les preuves et les témoignages.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Créer un Nouveau Dossier</h3>
+                    <form>
+                        <div>
+                            <label for="dossier-nom">Nom du dossier :</label>
+                            <input type="text" id="dossier-nom" name="dossier-nom" placeholder="Ex: Affaire [Nom_du_cas]">
+                        </div>
+                        <div>
+                            <label for="dossier-description">Description :</label>
+                            <textarea id="dossier-description" name="dossier-description" placeholder="Brève description de l'enquête"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Créer le dossier</button>
+                    </form>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Accéder aux Dossiers Existants</h3>
+                    <ul>
+                        <li><a href="#">Dossier #001 - Enquête sur la pollution fluviale</a> <span class="alert-text">[Ouvert]</span></li>
+                        <li><a href="#">Dossier #002 - Fraude aux subventions agricoles</a> <span class="highlight-date">[Fermé]</span></li>
+                        <li><a href="#">Dossier #003 - Alerte sur les décharges illégales</a> <span class="highlight-keyword">[En cours]</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="collaboration" class="content-section">
+                <h2 class="section-title">Collaboration avec la Justice</h2>
+                <p>Facilitez l'échange sécurisé d'informations et de preuves avec les autorités judiciaires.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Partage Sécurisé de Preuves</h3>
+                    <form>
+                        <div>
+                            <label for="dossier-partage">Dossier à partager :</label>
+                            <select id="dossier-partage" name="dossier-partage">
+                                <option value="">Sélectionner un dossier</option>
+                                <option value="001">Dossier #001</option>
+                                <option value="003">Dossier #003</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="destinataire-justice">Destinataire (email ou service) :</label>
+                            <input type="email" id="destinataire-justice" name="destinataire-justice" placeholder="juge.dupont@justice.fr">
+                        </div>
+                        <button type="submit" class="btn-primary">Envoyer les preuves</button>
+                    </form>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Demandes d'Assistance Judiciaire</h3>
+                    <p>Envoyez des requêtes formelles pour obtenir des mandats, des écoutes, ou des informations complémentaires.</p>
+                    <button class="btn-primary">Rédiger une requête</button>
+                </div>
+            </section>
+
+            <section id="rapports" class="content-section">
+                <h2 class="section-title">Rapports d'Enquête</h2>
+                <p>Générez des rapports détaillés pour présenter vos conclusions et appuyer vos actions légales.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Générer un Rapport</h3>
+                    <form>
+                        <div>
+                            <label for="rapport-dossier">Dossier concerné :</label>
+                            <select id="rapport-dossier" name="rapport-dossier">
+                                <option value="">Sélectionner un dossier</option>
+                                <option value="001">Dossier #001</option>
+                                <option value="003">Dossier #003</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="periode-rapport">Période du rapport :</label>
+                            <input type="text" id="periode-rapport" name="periode-rapport" placeholder="Ex: Janvier 2023 - Juin 2024">
+                        </div>
+                        <button type="submit" class="btn-primary">Générer le rapport PDF</button>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Bioclimat - Tous droits réservés.</p>
+    </div>
+
+    <div id="chatbotModal" class="modal">
+        <div class="modal-content chatbot-modal-content">
+            <span class="close-button" id="closeChatbotBtn">&times;</span>
+            <h2>Chatbot Bioclimatique</h2>
+            <div class="chat-main-container">
+                <aside class="chat-persona-aside">
+                    <h3>Personas</h3>
+                    <div class="persona-selection">
+                        <button class="persona-btn" data-persona="scientifique">Scientifique</button>
+                        <button class="persona-btn" data-persona="lanceur-alerte">Lanceur d'alerte</button>
+                        <button class="persona-btn" data-persona="journaliste">Journaliste</button>
+                        <button class="persona-btn" data-persona="enquêteur">Enquêteur</button>
+                    </div>
+                </aside>
+                <div class="chat-content-area">
+                    <div id="chatHistory">
+                        </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" placeholder="Tapez votre message ici...">
+                        <button id="sendBtn" class="btn-primary">Envoyer</button>
+                        <button id="clearChatBtn" class="btn-secondary">Effacer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mediaModal" class="modal">
+        <div class="media-modal-content">
+            <button id="closeMediaModalBtn" class="close-button">&times;</button>
+            <div id="mediaModalContent">
+                </div>
+        </div>
+    </div>
+
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/modals.js"></script>
+    <script type="module" src="../js/pages/investigator.js"></script>
+    </body>
+</html>

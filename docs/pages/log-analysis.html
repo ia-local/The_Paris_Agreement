@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse des Logs du Chatbot</title>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Votre fichier CSS personnalisé -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .log-analysis-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        .log-analysis-container h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+            font-weight: 700;
+            text-align: center;
+        }
+        .log-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .log-controls button {
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .log-controls button:hover {
+            background-color: #2980b9;
+        }
+        .log-controls select {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 0.9em;
+        }
+        .log-list {
+            max-height: 70vh;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .log-entry {
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        .log-entry h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #34495e;
+            font-size: 1.2em;
+        }
+        .log-entry p {
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        .log-entry pre {
+            background-color: #eef;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Permet le retour à la ligne */
+            word-break: break-word; /* Casse les mots longs */
+            font-size: 0.85em;
+            border: 1px solid #d0d0e0;
+        }
+        .log-entry .log-meta {
+            font-size: 0.8em;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        .log-entry .log-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .log-entry .log-actions button {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-left: 5px;
+            transition: color 0.2s;
+        }
+        .log-entry .log-actions button:hover {
+            color: #c0392b;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #34495e;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .back-button:hover {
+            background-color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="log-analysis-container">
+        <h1>Analyse des Logs du Chatbot</h1>
+        <div class="log-controls">
+            <button id="loadLogsBtn">Charger les Logs</button>
+            <select id="personaFilter">
+                <option value="all">Toutes les Personas</option>
+                <option value="scientist">Scientifique</option>
+                <option value="whistleblower">Lanceur d'alerte</option>
+                <option value="journalist">Journaliste</option>
+                <option value="investigator">Enquêteur</option>
+            </select>
+            <button id="exportMarkdownBtn">Exporter en Markdown</button>
+        </div>
+        <div id="logList" class="log-list">
+            <p>Cliquez sur "Charger les Logs" pour afficher les interactions.</p>
+        </div>
+        <a href="ai-tools.html" class="back-button">Retour aux Outils IA</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadLogsBtn = document.getElementById('loadLogsBtn');
+            const logList = document.getElementById('logList');
+            const personaFilter = document.getElementById('personaFilter');
+            const exportMarkdownBtn = document.getElementById('exportMarkdownBtn');
+
+            let allLogs = []; // Stocke tous les logs chargés
+
+            async function fetchLogs() {
+                try {
+                    const response = await fetch('/logs');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    allLogs = await response.json();
+                    displayLogs();
+                } catch (error) {
+                    console.error('Erreur lors du chargement des logs:', error);
+                    logList.innerHTML = '<p style="color: red;">Erreur lors du chargement des logs. Veuillez vérifier le serveur.</p>';
+                }
+            }
+
+            function displayLogs() {
+                const selectedPersona = personaFilter.value;
+                let filteredLogs = allLogs;
+
+                if (selectedPersona !== 'all') {
+                    filteredLogs = allLogs.filter(log => log.persona === selectedPersona);
+                }
+
+                logList.innerHTML = ''; // Clear previous logs
+
+                if (filteredLogs.length === 0) {
+                    logList.innerHTML = '<p>Aucune interaction trouvée pour cette persona.</p>';
+                    return;
+                }
+
+                // Afficher les logs du plus récent au plus ancien
+                filteredLogs.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+                filteredLogs.forEach(log => {
+                    const logEntry = document.createElement('div');
+                    logEntry.classList.add('log-entry');
+                    logEntry.dataset.logId = log.id; // Stocke l'ID pour la suppression
+
+                    const formattedTimestamp = new Date(log.timestamp).toLocaleString('fr-FR');
+
+                    logEntry.innerHTML = `
+                        <div class="log-actions">
+                            <button class="delete-log-btn" title="Supprimer cette interaction" data-id="${log.id}"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                        <h3>Persona: ${log.persona.charAt(0).toUpperCase() + log.persona.slice(1)}</h3>
+                        <p class="log-meta">ID: ${log.id} | Date: ${formattedTimestamp}</p>
+                        <p><strong>Message Utilisateur:</strong></p>
+                        <pre>${log.userMessage}</pre>
+                        <p><strong>Réponse IA:</strong></p>
+                        <pre>${log.aiResponse}</pre>
+                    `;
+                    logList.appendChild(logEntry);
+                });
+
+                // Attacher les écouteurs d'événements pour les boutons de suppression
+                document.querySelectorAll('.delete-log-btn').forEach(button => {
+                    button.addEventListener('click', handleDeleteLog);
+                });
+            }
+
+            async function handleDeleteLog(event) {
+                const logId = event.currentTarget.dataset.id;
+                if (!confirm(`Êtes-vous sûr de vouloir supprimer l'interaction ${logId} ?`)) {
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`/logs/${logId}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    console.log(result.message);
+                    // Recharger les logs après suppression réussie
+                    fetchLogs();
+                } catch (error) {
+                    console.error(`Erreur lors de la suppression de l'interaction ${logId}:`, error);
+                    alert(`Échec de la suppression de l'interaction: ${error.message}`);
+                }
+            }
+
+            async function exportMarkdown() {
+                try {
+                    const response = await fetch('/historique');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const markdownContent = await response.text();
+                    const blob = new Blob([markdownContent], { type: 'text/markdown' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'historique_chatbot.md';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                } catch (error) {
+                    console.error('Erreur lors de l\'exportation Markdown:', error);
+                    alert('Erreur lors de l\'exportation de l\'historique en Markdown.');
+                }
+            }
+
+
+            loadLogsBtn.addEventListener('click', fetchLogs);
+            personaFilter.addEventListener('change', displayLogs);
+            exportMarkdownBtn.addEventListener('click', exportMarkdown);
+
+            // Charger les logs au premier chargement de la page
+            fetchLogs();
+        });
+    </script>
+</body>
+</html>

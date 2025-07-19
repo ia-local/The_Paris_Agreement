@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport d'Urgence : Géo-ingénierie et Crise Bioclimatique</title>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Votre fichier CSS personnalisé -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Rapport d'Urgence : Géo-ingénierie et Crise Bioclimatique</h1>
+        <!-- Bouton pour ouvrir le chatbot -->
+        <button id="openChatbotBtn">💬 Chatbot IA</button>
+        <!-- Le bouton "Rôles & Missions" a été déplacé dans la navigation principale pour éviter la duplication -->
+    </div>
+
+    <div class="container">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Accueil du Rapport</a></li>
+                <li><a href="#petition-form" class="nav-link" data-page="petition-form"><i class="fas fa-file-signature"></i> Lancer une Pétition</a></li>
+                <li><a href="#contact-resources" class="nav-link" data-page="contact-resources"><i class="fas fa-address-book"></i> Contact & Ressources</a></li>
+                <!-- Lien vers la page "Rôles & Missions" -->
+                <li><a href="pages/journalist.html" class="nav-link" data-page="roles"><i class="fas fa-users"></i> Rôles & Missions</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-layout-columns">
+            <!-- Colonne Gauche : Barre de navigation latérale -->
+            <aside class="aside-column">
+                <h2 class="subsection-title">Navigation Rapide</h2>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li>
+                            <a href="#" class="sidebar-link active" data-section-id="introduction"><i class="fas fa-info-circle"></i> Introduction</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section-id="chronologie-evenements"><i class="fas fa-history"></i> Chronologie des Événements</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section-id="preuves-visuelles"><i class="fas fa-images"></i> Preuves Visuelles</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section-id="impact-nuages"><i class="fas fa-cloud"></i> Impact sur les Nuages</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section-id="methodes-suspectees"><i class="fas fa-flask"></i> Méthodes Suspectées</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section-id="reglementation-geoingenierie"><i class="fas fa-balance-scale"></i> Réglementation Géo-ingénierie</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section-id="observations-discrepances"><i class="fas fa-eye"></i> Observations & Discrépances</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section-id="risques"><i class="fas fa-exclamation-triangle"></i> Risques & Conséquences</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section-id="demonstration"><i class="fas fa-laptop-code"></i> Démonstration</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section-id="appel-action"><i class="fas fa-bullhorn"></i> Appel à l'Action</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="action-buttons">
+                    <button id="goToPetitionBtn" class="btn-secondary">Signer la Pétition</button>
+                    <button id="shareObservationBtn" class="btn-secondary">Partager une Observation</button>
+                </div>
+            </aside>
+
+            <!-- Colonne Droite : Contenu Principal -->
+            <main class="main-content-column">
+                <!-- Section pour le contenu dynamique chargé par JavaScript -->
+                <!-- ID crucial pour le chargement des sections par scripts.js -->
+                <section id="content-display" class="content-section active">
+                    <!-- Le contenu sera injecté ici par sectionContent.js -->
+                </section>
+
+                <!-- Section pour le formulaire de pétition (affichée directement) -->
+                <section id="petition-form" class="content-section">
+                    <h2 class="section-title">Pétition : Non à la Géo-ingénierie Climatique Non Transparente !</h2>
+                    <p>
+                        Nous, citoyens préoccupés par la crise bioclimatique actuelle et les interventions climatiques non déclarées, demandons la transparence totale et l'arrêt immédiat de toute opération de géo-ingénierie sans consentement public éclairé.
+                    </p>
+                    <form id="petitionForm" class="p-4 bg-white rounded-lg shadow-md">
+                        <div class="mb-4">
+                            <label for="userName" class="block text-gray-700 font-bold mb-2">Votre Nom / Pseudo :</label>
+                            <input type="text" id="userName" name="userName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="userEmail" class="block text-gray-700 font-bold mb-2">Votre Email :</label>
+                            <input type="email" id="userEmail" name="userEmail" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="userComment" class="block text-gray-700 font-bold mb-2">Votre message de soutien (optionnel) :</label>
+                            <textarea id="userComment" name="userComment" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                        </div>
+                        <div class="mb-4 flex items-center">
+                            <input type="checkbox" id="supportArticle38" name="supportArticle38" class="mr-2 leading-tight">
+                            <label for="supportArticle38" class="text-gray-700">Je soutiens l'application de l'article 38 de la Charte de l'Environnement.</label>
+                        </div>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Signer la Pétition</button>
+                        <p id="petitionMessage" class="mt-4 text-center"></p>
+                    </form>
+
+                    <h3 class="subsection-title mt-8">Signatures actuelles : <span id="petitionCount">0</span></h3>
+                    <div id="votesList" class="mt-4 p-4 bg-white rounded-lg shadow-md max-h-96 overflow-y-auto">
+                        <!-- Les signatures seront chargées ici par petition.js -->
+                        <p>Aucune signature pour le moment.</p>
+                    </div>
+                </section>
+
+                <!-- Section pour Contact & Ressources (affichée directement) -->
+                <section id="contact-resources" class="content-section">
+                    <h2 class="section-title">Contact & Ressources Utiles</h2>
+                    <p>
+                        Si vous avez des informations, des observations ou si vous souhaitez contribuer à ce rapport, n'hésitez pas à nous contacter. Ensemble, nous pouvons exiger la transparence et la protection de notre environnement.
+                    </p>
+                    <ul class="resource-list">
+                        <li>
+                            <strong>Email :</strong> <a href="mailto:contact@bioclimat-alerte.org">contact@bioclimat-alerte.org</a>
+                        </li>
+                        <li>
+                            <strong>Forum de discussion :</strong> Rejoignez notre communauté sur <a href="https://example.com/forum" target="_blank">bioclimat-forum.org</a>
+                        </li>
+                        <li>
+                            <strong>Ressources complémentaires :</strong>
+                            <ul>
+                                <li><a href="https://example.com/rapport-officiel" target="_blank">Rapport Officiel sur la Géo-ingénierie (hypotétique)</a></li>
+                                <li><a href="https://example.com/charte-environnement" target="_blank">Charte de l'Environnement - Article 38</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>
+                        Vos contributions sont essentielles pour compléter ce rapport et renforcer notre appel à l'action.
+                    </p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modale du Chatbot -->
+    <div id="chatbotModal" class="modal">
+        <div class="modal-content">
+            <button id="closeChatbotBtn" class="modal-close-btn">&times;</button>
+            <div class="chat-container">
+                <div class="persona-selection mb-4 flex justify-around p-2 bg-gray-100 rounded-md">
+                    <button class="persona-btn p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors" data-persona="scientifique">Scientifique</button>
+                    <button class="persona-btn p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors" data-persona="journaliste">Journaliste</button>
+                    <button class="persona-btn p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors" data-persona="enquêteur">Enquêteur</button>
+                    <button class="persona-btn p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors" data-persona="lanceur-alerte">Lanceur d'alerte</button>
+                </div>
+                <div id="chatHistory" class="flex-grow overflow-y-auto p-4 border rounded-md mb-4 bg-gray-50">
+                    <div class="ai-message message">
+                        <p>Bienvenue ! Je suis votre assistant bioclimatique. Choisissez une persona pour commencer à discuter.</p>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" placeholder="Tapez votre message..." class="flex-grow p-2 border rounded-md">
+                    <button id="sendBtn" class="bg-blue-500 text-white p-2 rounded-md">Envoyer</button>
+                </div>
+                <button id="clearChatBtn" class="bg-red-500 text-white p-2 rounded-md mt-2">Effacer le chat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nouvelle modale pour l'affichage des médias de la galerie -->
+    <div id="mediaModal" class="modal">
+        <div class="media-modal-content">
+            <button id="closeMediaModalBtn" class="modal-close-btn">&times;</button>
+            <div id="mediaModalContent">
+                <!-- Le média (image ou vidéo) et sa légende seront insérés ici par JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Vos fichiers JavaScript personnalisés -->
+    <!-- Les modules doivent être chargés en premier car ils exportent des éléments -->
+    <script type="module" src="js/sectionContent.js"></script>
+    <script type="module" src="js/petition.js"></script>
+    <!-- Les scripts qui sont des fonctions globales (comme gallery.js, chatbot.js, modals.js)
+         peuvent rester de type standard ou être transformés en modules si nécessaire.
+         Pour l'instant, ils sont chargés comme avant et exposent leurs fonctions à window. -->
+    <script src="js/gallery.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/modals.js"></script>
+    <!-- Le script principal (orchestrateur) doit être chargé en dernier et de type module -->
+    <script type="module" src="js/scripts.js"></script>
+</body>
+</html>

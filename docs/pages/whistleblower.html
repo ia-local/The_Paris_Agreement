@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Lanceur d'alerte - Bioclimat</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Dashboard Lanceur d'alerte</h1>
+        <button id="openChatbotBtn">Ouvrir Chatbot</button>
+    </div>
+
+    <div class="main-nav">
+        <ul>
+            <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="./journalist.html"><i class="fas fa-newspaper"></i> Journaliste</a></li>
+            <li><a href="#" class="active"><i class="fas fa-bullhorn"></i> Lanceur d'alerte</a></li>
+            <li><a href="./scientist.html"><i class="fas fa-flask"></i> Scientifique</a></li>
+            <li><a href="./investigator.html"><i class="fas fa-magnifying-glass"></i> Enquêteur</a></li>
+        </ul>
+    </div>
+
+    <div class="main-layout-columns container">
+        <aside class="aside-column">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#signalement" class="active"><i class="fas fa-exclamation-triangle"></i> Dénonciation & Signalement</a></li>
+                    <li><a href="#protection"><i class="fas fa-shield-alt"></i> Protection & Soutien</a></li>
+                    <li><a href="#preuves"><i class="fas fa-file-alt"></i> Preuves & Documentation</a></li>
+                    <li><a href="#communication"><i class="fas fa-share-alt"></i> Communication Publique</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-column">
+            <section id="signalement" class="content-section active">
+                <h2 class="section-title">Dénonciation et Signalement</h2>
+                <p>Utilisez cet espace pour signaler des pratiques illégales ou dangereuses, en toute sécurité et confidentialité.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Formulaire de Signalement Sécurisé</h3>
+                    <form>
+                        <div>
+                            <label for="type-alerte">Type d'alerte :</label>
+                            <select id="type-alerte" name="type-alerte">
+                                <option value="">Sélectionner</option>
+                                <option value="geo-ingenierie">Géo-ingénierie illégale</option>
+                                <option value="loi-duplomb">Abus Loi Duplomb</option>
+                                <option value="corruption">Corruption environnementale</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="description-alerte">Description détaillée :</label>
+                            <textarea id="description-alerte" name="description-alerte" placeholder="Décrivez les faits, les lieux, les dates et les personnes impliquées."></textarea>
+                        </div>
+                        <div>
+                            <label for="fichiers-preuves">Joindre des preuves (documents, photos, vidéos) :</label>
+                            <input type="file" id="fichiers-preuves" name="fichiers-preuves" multiple>
+                        </div>
+                        <button type="submit" class="btn-primary">Envoyer le signalement</button>
+                    </form>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Suivi de mes Alertes</h3>
+                    <p>Consultez le statut de vos signalements et les actions entreprises.</p>
+                    <ul>
+                        <li>Alerte #001 - Injections aériennes en Bretagne <span class="highlight-keyword">[En cours d'analyse]</span></li>
+                        <li>Alerte #002 - Non-respect des normes d'élevage <span class="alert-text">[Transférée à la justice]</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="protection" class="content-section">
+                <h2 class="section-title">Protection et Soutien</h2>
+                <p>Accédez à des ressources légales et psychologiques pour vous protéger en tant que lanceur d'alerte.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Conseil Juridique</h3>
+                    <p>Obtenez des informations sur vos droits et la législation en vigueur pour les lanceurs d'alerte.</p>
+                    <button class="btn-primary">Contacter un juriste</button>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Soutien Psychologique</h3>
+                    <p>Des professionnels sont disponibles pour vous accompagner face aux défis émotionnels liés à votre démarche.</p>
+                    <button class="btn-primary">Accéder au soutien</button>
+                </div>
+            </section>
+
+            <section id="preuves" class="content-section">
+                <h2 class="section-title">Preuves et Documentation</h2>
+                <p>Organisez et sécurisez vos preuves avant de les partager ou de les signaler.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Coffre-fort Numérique Sécurisé</h3>
+                    <p>Stockez vos documents, photos et vidéos de manière chiffrée et horodatée.</p>
+                    <button class="btn-primary">Accéder au Coffre-fort</button>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Guide de Collecte de Preuves</h3>
+                    <p>Apprenez les meilleures pratiques pour collecter des preuves recevables en justice.</p>
+                    <button class="btn-primary">Consulter le guide</button>
+                </div>
+            </section>
+
+            <section id="communication" class="content-section">
+                <h2 class="section-title">Communication Publique</h2>
+                <p>Préparez des communiqués ou des témoignages pour informer le public, si vous choisissez cette voie.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Assistance à la Rédaction de Communiqués</h3>
+                    <form>
+                        <div>
+                            <label for="communique-sujet">Sujet du communiqué :</label>
+                            <input type="text" id="communique-sujet" name="communique-sujet" placeholder="Ex: Alerte sur la pollution de l'eau">
+                        </div>
+                        <div>
+                            <label for="communique-contenu">Contenu principal :</label>
+                            <textarea id="communique-contenu" name="communique-contenu" placeholder="Rédigez votre message au public."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Générer le brouillon</button>
+                    </form>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Anonymisation des Informations</h3>
+                    <p>Outils pour aider à anonymiser les documents et témoignages avant publication.</p>
+                    <button class="btn-primary">Anonymiser des données</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Bioclimat - Tous droits réservés.</p>
+    </div>
+
+    <!-- La Modale Chatbot -->
+    <div id="chatbotModal" class="modal">
+        <div class="modal-content chatbot-modal-content">
+            <span class="close-button" id="closeChatbotBtn">&times;</span>
+            <h2>Chatbot Bioclimatique</h2>
+            <div class="chat-main-container">
+                <aside class="chat-persona-aside">
+                    <h3>Personas</h3>
+                    <div class="persona-selection">
+                        <button class="persona-btn" data-persona="scientifique">Scientifique</button>
+                        <button class="persona-btn" data-persona="lanceur-alerte">Lanceur d'alerte</button>
+                        <button class="persona-btn" data-persona="journaliste">Journaliste</button>
+                        <button class="persona-btn" data-persona="enquêteur">Enquêteur</button>
+                    </div>
+                </aside>
+                <div class="chat-content-area">
+                    <div id="chatHistory">
+                        <!-- Les messages du chat apparaîtront ici. Le premier message est géré par chatbot.js -->
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" placeholder="Tapez votre message ici...">
+                        <button id="sendBtn" class="btn-primary">Envoyer</button>
+                        <button id="clearChatBtn" class="btn-secondary">Effacer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale pour l'affichage des médias (galerie) -->
+    <div id="mediaModal" class="modal">
+        <div class="media-modal-content">
+            <button id="closeMediaModalBtn" class="close-button">&times;</button>
+            <div id="mediaModalContent">
+                <!-- Le média (image ou vidéo) et sa légende seront insérés ici par JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/modals.js"></script>
+    <script type="module" src="../js/pages/whistleblower.js"></script>
+    <!-- Ajoutez gallery.js si vous avez des galeries sur cette page -->
+    <!-- <script src="../js/gallery.js"></script> -->
+</body>
+</html>

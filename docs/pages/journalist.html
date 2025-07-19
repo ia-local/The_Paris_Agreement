@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Journaliste - Plateforme Bioclimatique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Styles généraux pour le dashboard */
+        .dashboard-section {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            display: none; /* Masqué par défaut, géré par JS */
+        }
+        .dashboard-section.active {
+            display: block; /* Affiché si actif */
+        }
+        .dashboard-section label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .dashboard-section input[type="text"],
+        .dashboard-section textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .dashboard-section textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .articles-list .article-item, .log-entry {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            position: relative; /* Pour positionner les boutons d'action */
+        }
+        .articles-list .article-item:last-child, .log-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .articles-list .article-item h3, .log-entry h4 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .articles-list .article-item p, .log-entry p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .articles-list .article-item .article-meta, .log-entry .log-meta {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+        }
+        .ai-output-box {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            white-space: pre-wrap; /* Pour conserver le formatage du texte de l'IA */
+            word-wrap: break-word;
+            margin-top: 15px;
+        }
+        .log-entry pre {
+            background-color: #eef;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        /* Styles pour les boutons d'action (transfert, édition, suppression) */
+        .action-buttons {
+            margin-top: 15px;
+        }
+        .transfer-btn, .edit-btn, .delete-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .transfer-btn {
+            background-color: #28a745; /* Vert */
+            color: white;
+            display: none; /* Masqué par défaut */
+        }
+        .transfer-btn:hover {
+            background-color: #218838;
+        }
+        .edit-btn {
+            background-color: #007bff; /* Bleu */
+            color: white;
+        }
+        .edit-btn:hover {
+            background-color: #0056b3;
+        }
+        .delete-btn {
+            background-color: #dc3545; /* Rouge */
+            color: white;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+
+        /* Styles pour les boutons de transfert de titre de l'IA */
+        .ai-output-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap; /* Permet aux boutons de passer à la ligne */
+        }
+        .ai-output-actions .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .ai-output-actions .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Ajustement du formulaire de rédaction */
+        #articleForm h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        /* Styles spécifiques pour les messages du chat (issu de chatbot.js) */
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background-color: #dcf8c6; /* Vert clair pour l'utilisateur */
+            align-self: flex-end; /* Aligne les messages de l'utilisateur à droite */
+            margin-left: auto;
+        }
+
+        .ai-message {
+            background-color: #e0e0e0; /* Gris clair pour l'IA */
+            align-self: flex-start; /* Aligne les messages de l'IA à gauche */
+            margin-right: auto;
+        }
+        #chatHistory .ai-message:first-child {
+            margin-top: 0; /* Supprime la marge supérieure du premier message AI */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Dashboard Journaliste ✍️</h1>
+        <a href="../index.html" class="button-link ml-4">🏠 Retour à l'Accueil</a>
+    </div>
+    <div class="main-nav">
+        <ul>
+            <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="./journalist.html"><i class="fas fa-newspaper"></i> Journaliste</a></li>
+            <li><a href="./whistleblower.html"><i class="fas fa-bullhorn"></i> Lanceur d'alerte</a></li>
+            <li><a href="#" class="active"><i class="fas fa-flask"></i> Scientifique</a></li>
+            <li><a href="./investigator.html"><i class="fas fa-magnifying-glass"></i> Enquêteur</a></li>
+        </ul>
+    </div>
+    <div class="container main-layout-columns">
+        <aside class="aside-column">
+            <h2 class="subsection-title">Outils du Journaliste</h2>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="#" class="dashboard-link active" data-section-id="ai-assistant-section"><i class="fas fa-robot"></i> Assistant IA</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dashboard-link" data-section-id="write-article-section"><i class="fas fa-edit"></i> Rédiger un Article</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dashboard-link" data-section-id="published-articles-section"><i class="fas fa-newspaper"></i> Mes Articles Publiés</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dashboard-link" data-section-id="ai-logs-section"><i class="fas fa-history"></i> Historique IA</a>
+                    </li>
+                    <li>
+                        <a href="#" id="openChatbotBtn" class="dashboard-link"><i class="fas fa-comments"></i> Chatbot Général</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-column">
+            <section id="ai-assistant-section" class="dashboard-section active">
+                <h2 class="section-title">Assistant de Rédaction IA</h2>
+                <div class="tool-card">
+                    <p>Utilisez cet assistant pour générer des brouillons, des titres, ou synthétiser des informations en vous basant sur l'historique de vos conversations avec l'IA.</p>
+                    <form id="aiAssistantForm">
+                        <div>
+                            <label for="aiPrompt">Votre demande à l'IA :</label>
+                            <textarea id="aiPrompt" name="aiPrompt" required placeholder="Ex: 'Rédige un paragraphe introductif sur les conséquences de l'iodure d'argent en Normandie en te basant sur nos discussions passées.', ou 'Propose 5 titres percutants sur la Loi Duplomb et ses risques.'"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Obtenir l'Assistance IA</button>
+                        <p id="aiAssistantMessage" style="margin-top: 15px; font-weight: bold;"></p>
+                    </form>
+                    <div class="ai-output-box" id="aiOutput">
+                        Aucune assistance demandée pour le moment.
+                    </div>
+                    <div class="ai-output-actions">
+                        <button type="button" id="transferToArticleBtn" class="transfer-btn">Transférer le contenu à l'éditeur</button>
+                        <div id="transferTitleButtons">
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="write-article-section" class="dashboard-section">
+                <h2 class="section-title" id="articleFormTitle">Rédiger un Nouvel Article</h2>
+                <div class="tool-card">
+                    <form id="articleForm">
+                        <input type="hidden" id="articleId" name="articleId"> <div>
+                            <label for="articleTitle">Titre de l'Article :</label>
+                            <input type="text" id="articleTitle" name="articleTitle" required placeholder="Titre percutant de votre enquête">
+                        </div>
+                        <div>
+                            <label for="articleAuthor">Votre Nom/Pseudo :</label>
+                            <input type="text" id="articleAuthor" name="articleAuthor" required placeholder="Ex: Clara Dupont">
+                        </div>
+                        <div>
+                            <label for="articleContent">Contenu de l'Article :</label>
+                            <textarea id="articleContent" name="articleContent" required placeholder="Rédigez votre enquête ici..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" id="submitArticleBtn">Publier l'Article</button>
+                        <button type="button" class="btn-secondary" id="cancelEditBtn" style="display: none; margin-left: 10px;">Annuler</button>
+                        <p id="articleMessage" style="margin-top: 15px; font-weight: bold;"></p>
+                    </form>
+                </div>
+            </section>
+
+            <section id="published-articles-section" class="dashboard-section">
+                <h2 class="section-title">Mes Articles Publiés</h2>
+                <div class="articles-list" id="articlesList">
+                    <p>Chargement des articles...</p>
+                </div>
+            </section>
+
+            <section id="ai-logs-section" class="dashboard-section">
+                <h2 class="section-title">Historique des Interactions avec l'IA</h2>
+                <div class="ai-logs-list" id="aiLogsList">
+                    <p>Chargement de l'historique...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 Bioclimat - Tous droits réservés.</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 Bioclimat - Tous droits réservés.</p>
+    </div>
+
+    <div id="chatbotModal" class="modal">
+        <div class="modal-content chatbot-modal-content"> <span class="close-button" id="closeChatbotBtn">&times;</span>
+            <h2>Chatbot Bioclimatique</h2>
+            <div class="chat-main-container"> <aside class="chat-persona-aside"> <h3>Personas</h3>
+                    <div class="persona-selection">
+                        <button class="persona-btn bg-gray-200 hover:bg-gray-300" data-persona="scientifique">Scientifique</button>
+                        <button class="persona-btn bg-gray-200 hover:bg-gray-300" data-persona="lanceur-alerte">Lanceur d'alerte</button>
+                        <button class="persona-btn bg-gray-200 hover:bg-gray-300" data-persona="journaliste">Journaliste</button>
+                        <button class="persona-btn bg-gray-200 hover:bg-gray-300" data-persona="enquêteur">Enquêteur</button>
+                    </div>
+                </aside>
+                <div class="chat-content-area"> <div id="chatHistory" class="flex-1 overflow-y-auto p-4 border rounded-lg bg-gray-50">
+                        </div>
+                    <div class="chat-input-area mt-4 flex">
+                        <input type="text" id="chatInput" placeholder="Tapez votre message ici..." class="flex-1 p-2 border rounded-lg">
+                        <button id="sendBtn" class="btn-primary">Envoyer</button>
+                        <button id="clearChatBtn" class="btn-secondary ml-2">Effacer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mediaModal" class="modal">
+        <div class="media-modal-content">
+            <button id="closeMediaModalBtn" class="modal-close-btn">&times;</button>
+            <div id="mediaModalContent">
+                </div>
+        </div>
+    </div>
+
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/modals.js"></script> <script type="module" src="../js/pages/journalist.js"></script>
+</body>
+</html>

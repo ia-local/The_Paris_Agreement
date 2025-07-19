@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Scientifique - Bioclimat</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Dashboard Scientifique</h1>
+        <button id="openChatbotBtn">Ouvrir Chatbot</button>
+    </div>
+
+    <div class="main-nav">
+        <ul>
+            <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="./journalist.html"><i class="fas fa-newspaper"></i> Journaliste</a></li>
+            <li><a href="./whistleblower.html"><i class="fas fa-bullhorn"></i> Lanceur d'alerte</a></li>
+            <li><a href="#" class="active"><i class="fas fa-flask"></i> Scientifique</a></li>
+            <li><a href="./investigator.html"><i class="fas fa-magnifying-glass"></i> Enquêteur</a></li>
+        </ul>
+    </div>
+
+    <div class="main-layout-columns container">
+        <aside class="aside-column">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#analyse-donnees" class="active"><i class="fas fa-chart-line"></i> Analyse de Données</a></li>
+                    <li><a href="#recherche-labo"><i class="fas fa-microscope"></i> Recherche & Laboratoire</a></li>
+                    <li><a href="#publications"><i class="fas fa-book-open"></i> Publications Scientifiques</a></li>
+                    <li><a href="#simulations"><i class="fas fa-globe"></i> Modélisation & Simulations</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-column">
+            <section id="analyse-donnees" class="content-section active">
+                <h2 class="section-title">Analyse de Données Bioclimatiques</h2>
+                <p>Accédez à des outils avancés pour traiter et visualiser les données climatiques, environnementales et sanitaires.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Tableaux de Bord Interactifs</h3>
+                    <p>Visualisez les tendances des températures, précipitations, qualité de l'air et impacts de la géo-ingénierie.</p>
+                    <button class="btn-primary">Accéder aux Tableaux de Bord</button>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Importation de Données</h3>
+                    <form>
+                        <div>
+                            <label for="data-file">Importer un fichier de données (CSV, JSON) :</label>
+                            <input type="file" id="data-file" name="data-file" accept=".csv, .json">
+                        </div>
+                        <button type="submit" class="btn-primary">Analyser le fichier</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="recherche-labo" class="content-section">
+                <h2 class="section-title">Recherche & Laboratoire</h2>
+                <p>Gérez vos projets de recherche, suivez vos expériences et documentez vos découvertes.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Gestion de Projets de Recherche</h3>
+                    <form>
+                        <div>
+                            <label for="projet-nom">Nom du projet :</label>
+                            <input type="text" id="projet-nom" name="projet-nom" placeholder="Ex: Étude sur l'iodure d'argent dans les sols">
+                        </div>
+                        <div>
+                            <label for="projet-description">Objectifs :</label>
+                            <textarea id="projet-description" name="projet-description" placeholder="Décrivez les objectifs de votre recherche"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Créer le projet</button>
+                    </form>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Protocole Expérimental</h3>
+                    <p>Accédez à une bibliothèque de protocoles ou créez les vôtres pour garantir la reproductibilité de vos expériences.</p>
+                    <button class="btn-primary">Consulter les protocoles</button>
+                </div>
+            </section>
+
+            <section id="publications" class="content-section">
+                <h2 class="section-title">Publications Scientifiques</h2>
+                <p>Préparez, soumettez et gérez vos articles scientifiques et vos rapports techniques.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Rédiger un Article</h3>
+                    <form>
+                        <div>
+                            <label for="article-titre">Titre de l'article :</label>
+                            <input type="text" id="article-titre" name="article-titre" placeholder="Titre complet de votre publication">
+                        </div>
+                        <div>
+                            <label for="article-resume">Résumé :</label>
+                            <textarea id="article-resume" name="article-resume" placeholder="Résumé de votre recherche"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Préparer la soumission</button>
+                    </form>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Historique des Publications</h3>
+                    <ul>
+                        <li><a href="#">Article: "Impacts de l'IAS sur la biodiversité"</a> <span class="highlight-date">[Publié 2024]</span></li>
+                        <li><a href="#">Rapport: "Analyse des précipitations en Normandie"</a> <span class="highlight-keyword">[En révision]</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="simulations" class="content-section">
+                <h2 class="section-title">Modélisation & Simulations</h2>
+                <p>Utilisez des modèles climatiques et environnementaux pour prédire des scénarios et évaluer des impacts.</p>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Lancer une Simulation Climatique</h3>
+                    <form>
+                        <div>
+                            <label for="modele-choix">Modèle de simulation :</label>
+                            <select id="modele-choix" name="modele-choix">
+                                <option value="">Choisir un modèle</option>
+                                <option value="gcm">Modèle de Circulation Générale (GCM)</option>
+                                <option value="scm">Modèle Climatique Simple (SCM)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="scenario-input">Scénario (ex: +2°C, géo-ingénierie intense) :</label>
+                            <input type="text" id="scenario-input" name="scenario-input" placeholder="Décrivez votre scénario">
+                        </div>
+                        <button type="submit" class="btn-primary">Lancer la simulation</button>
+                    </form>
+                </div>
+
+                <div class="tool-card">
+                    <h3 class="subsection-title">Visualisation des Résultats</h3>
+                    <p>Explorez les résultats de vos simulations via des cartes interactives et des graphiques.</p>
+                    <button class="btn-primary">Visualiser les Résultats</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Bioclimat - Tous droits réservés.</p>
+    </div>
+
+    <!-- La Modale Chatbot -->
+    <div id="chatbotModal" class="modal">
+        <div class="modal-content chatbot-modal-content">
+            <span class="close-button" id="closeChatbotBtn">&times;</span>
+            <h2>Chatbot Bioclimatique</h2>
+            <div class="chat-main-container">
+                <aside class="chat-persona-aside">
+                    <h3>Personas</h3>
+                    <div class="persona-selection">
+                        <button class="persona-btn" data-persona="scientifique">Scientifique</button>
+                        <button class="persona-btn" data-persona="lanceur-alerte">Lanceur d'alerte</button>
+                        <button class="persona-btn" data-persona="journaliste">Journaliste</button>
+                        <button class="persona-btn" data-persona="enquêteur">Enquêteur</button>
+                    </div>
+                </aside>
+                <div class="chat-content-area">
+                    <div id="chatHistory">
+                        <!-- Les messages du chat apparaîtront ici. Le premier message est géré par chatbot.js -->
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" placeholder="Tapez votre message ici...">
+                        <button id="sendBtn" class="btn-primary">Envoyer</button>
+                        <button id="clearChatBtn" class="btn-secondary">Effacer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale pour l'affichage des médias (galerie) -->
+    <div id="mediaModal" class="modal">
+        <div class="media-modal-content">
+            <button id="closeMediaModalBtn" class="close-button">&times;</button>
+            <div id="mediaModalContent">
+                <!-- Le média (image ou vidéo) et sa légende seront insérés ici par JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/modals.js"></script>
+    <script type="module" src="../js/pages/scientist.js"></script>
+    <!-- Ajoutez gallery.js si vous avez des galeries sur cette page -->
+    <!-- <script src="../js/gallery.js"></script> -->
+</body>
+</html>

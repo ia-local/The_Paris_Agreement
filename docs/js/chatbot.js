@@ -1,156 +1,172 @@
 // public/js/chatbot.js
 
-// Encapsule toute la logique d'initialisation du chatbot dans une fonction globale
-// pour qu'elle puisse être appelée par modals.js ou directement si nécessaire.
-function initializeChatbotUI() {
-    // Récupération des éléments DOM du chatbot
-    const chatHistory = document.getElementById('chatHistory');
-    const chatInput = document.getElementById('chatInput');
-    const sendBtn = document.getElementById('sendBtn');
-    const personaButtons = document.querySelectorAll('.persona-btn');
-    const clearChatBtn = document.getElementById('clearChatBtn');
+// Variable globale pour stocker l'historique de conversation
+let conversationHistory = [];
+// Variable pour stocker la persona active
+let activePersona = null;
 
-    // Vérifie si les éléments DOM nécessaires existent avant de continuer
-    if (!chatHistory || !chatInput || !sendBtn || !personaButtons.length || !clearChatBtn) {
-        console.error("Erreur: Éléments DOM du chatbot introuvables. L'initialisation a échoué.");
+/**
+ * Affiche un message dans l'historique du chat.
+ * @param {string} message - Le texte du message.
+ * @param {string} sender - Le type d'expéditeur ('user' ou 'ai').
+ */
+function displayMessage(message, sender) {
+    const chatHistory = document.getElementById('chatHistory');
+    if (!chatHistory) {
+        console.error("Élément 'chatHistory' introuvable.");
         return;
     }
 
-    // Persona par défaut et historique de conversation
-    let currentPersona = 'scientist'; // Persona par défaut
-    let conversationHistory = []; // Historique de conversation pour le modèle
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', `${sender}-message`);
+    messageDiv.innerHTML = `<p>${message}</p>`; // Utiliser innerHTML pour permettre le HTML si l'IA en génère
+    chatHistory.appendChild(messageDiv);
 
-    // Fonction pour ajouter un message à l'historique du chat
-    function addMessageToHistory(sender, message) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message');
-        if (sender === 'user') {
-            messageDiv.classList.add('user-message');
-            messageDiv.innerHTML = `<p>${message}</p>`; // Utiliser innerHTML pour permettre le formatage si le message contient du HTML
-        } else {
-            messageDiv.classList.add('ai-message');
-            messageDiv.innerHTML = message; // La réponse de l'IA peut déjà être formatée en HTML
-        }
-        chatHistory.appendChild(messageDiv);
-        chatHistory.scrollTop = chatHistory.scrollHeight; // Faire défiler vers le bas
+    // Faire défiler vers le bas pour voir le dernier message
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+}
+
+/**
+ * Envoie un message au chatbot (backend) et gère la réponse.
+ */
+async function sendMessage() {
+    const chatInput = document.getElementById('chatInput');
+    const userMessage = chatInput.value.trim();
+
+    if (userMessage === '') {
+        return; // Ne rien envoyer si le message est vide
     }
 
-    // Fonction pour envoyer un message à l'API du serveur
-    async function sendMessage() {
-        const userMessage = chatInput.value.trim();
-        if (userMessage === '') return;
-
-        addMessageToHistory('user', userMessage);
-        conversationHistory.push({ role: 'user', content: userMessage });
-        chatInput.value = ''; // Efface l'input après l'envoi
-
-        // Ajoute un indicateur de chargement
-        const loadingDiv = document.createElement('div');
-        loadingDiv.classList.add('ai-message', 'message');
-        loadingDiv.innerHTML = '<p>L\'IA réfléchit... <span class="loading-spinner"></span></p>';
-        chatHistory.appendChild(loadingDiv);
-        chatHistory.scrollTop = chatHistory.scrollHeight;
-
-        try {
-            // Détermine l'endpoint en fonction de la persona
-            const endpoint = `/chat-${currentPersona}`;
-
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    userMessage: userMessage,
-                    conversationHistory: conversationHistory // Envoie l'historique complet
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status} - ${response.statusText}`);
-            }
-
-            const data = await response.json();
-            const aiResponse = data.response;
-
-            // Retire l'indicateur de chargement
-            chatHistory.removeChild(loadingDiv);
-
-            addMessageToHistory('ai', aiResponse);
-            conversationHistory.push({ role: 'assistant', content: aiResponse });
-
-        } catch (error) {
-            console.error('Erreur lors de l\'envoi du message à l\'IA:', error);
-            // Retire l'indicateur de chargement et affiche un message d'erreur
-            if (chatHistory.contains(loadingDiv)) {
-                chatHistory.removeChild(loadingDiv);
-            }
-            addMessageToHistory('ai', `<p class="text-red-500">Désolé, une erreur est survenue lors de la communication avec l'IA. Veuillez réessayer. (${error.message})</p>`);
-        }
+    if (!activePersona) {
+        displayMessage("Veuillez choisir une persona avant de commencer à discuter.", "ai");
+        return;
     }
 
-    // Gestionnaire d'événements pour le bouton d'envoi
-    sendBtn.addEventListener('click', sendMessage);
+    displayMessage(userMessage, 'user');
+    chatInput.value = ''; // Effacer l'input après envoi
 
-    // Gestionnaire d'événements pour la touche Entrée dans le champ de saisie
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
+    // Ajouter le message de l'utilisateur à l'historique
+    conversationHistory.push({ role: "user", content: userMessage });
 
-    // Gestionnaire d'événements pour les boutons de persona
-    personaButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Retire la classe 'active' de tous les boutons
-            personaButtons.forEach(btn => btn.classList.remove('active'));
-            // Ajoute la classe 'active' au bouton cliqué
-            button.classList.add('active');
-            // Met à jour la persona actuelle
-            currentPersona = button.dataset.persona;
-            // Réinitialise l'historique de conversation lors du changement de persona
-            conversationHistory = [];
-            // Affiche un message initial spécifique à la nouvelle persona
-            chatHistory.innerHTML = `
-                <div class="ai-message message">
-                    <p>Bienvenue ! Je suis votre assistant en tant que <span class="font-bold">${button.textContent}</span>. Posez-moi vos questions sur les sujets bioclimatiques.</p>
-                </div>
-            `;
+    try {
+        // L'endpoint est maintenant `/chatbot` et la persona est envoyée dans le corps
+        const endpoint = `/chatbot`;
+        console.log(`Envoi du message à l'endpoint: ${endpoint} avec persona: ${activePersona}`);
+
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: userMessage,
+                persona: activePersona, // Envoyer la persona active
+                history: conversationHistory // Envoyer l'historique complet
+            })
         });
-    });
 
-    // Gestionnaire d'événements pour le bouton "Effacer le chat"
-    clearChatBtn.addEventListener('click', () => {
-        chatHistory.innerHTML = `
-            <div class="ai-message message">
-                <p>Bienvenue ! Je suis votre assistant bioclimatique. Choisissez une persona pour commencer à discuter.</p>
-            </div>
-        `;
-        conversationHistory = []; // Efface l'historique de conversation
-    });
+        if (!response.ok) {
+            const errorText = await response.text(); // Tenter de lire le corps de l'erreur
+            throw new Error(`Erreur HTTP: ${response.status} - ${errorText}`);
+        }
 
-    // Initialisation : sélectionner le bouton de la persona par défaut au chargement
-    // et afficher le message initial correspondant.
-    const defaultPersonaButton = document.querySelector(`[data-persona="${currentPersona}"]`);
-    if (defaultPersonaButton) {
-        defaultPersonaButton.classList.add('active');
-        chatHistory.innerHTML = `
-            <div class="ai-message message">
-                <p>Bienvenue ! Je suis votre assistant en tant que <span class="font-bold">${defaultPersonaButton.textContent}</span>. Posez-moi vos questions sur les sujets bioclimatiques.</p>
-            </div>
-        `;
+        const data = await response.json();
+        const aiResponse = data.reply; // La réponse de l'IA est dans 'reply'
+
+        displayMessage(aiResponse, 'ai');
+        // Ajouter la réponse de l'IA à l'historique
+        conversationHistory.push({ role: "assistant", content: aiResponse });
+
+    } catch (error) {
+        console.error('Erreur lors de l\'envoi du message au chatbot:', error);
+        displayMessage(`Désolé, une erreur est survenue lors de la communication avec l'IA. Veuillez réessayer.`, 'ai');
     }
 }
 
-// Rend la fonction d'initialisation disponible globalement
-window.initializeChatbotUI = initializeChatbotUI;
+/**
+ * Initialise les écouteurs d'événements pour le chatbot.
+ * Cette fonction est rendue globale pour être appelée depuis scripts.js
+ */
+window.initializeChatbotUI = function() {
+    const sendBtn = document.getElementById('sendBtn');
+    const chatInput = document.getElementById('chatInput');
+    const clearChatBtn = document.getElementById('clearChatBtn');
+    const personaButtons = document.querySelectorAll('.persona-btn');
+    const chatHistory = document.getElementById('chatHistory');
 
-// Pour le cas où chatbot.js serait inclus sans être appelé explicitement par modals.js
-// (bien que dans votre setup actuel avec index.html, modals.js s'en chargera)
-document.addEventListener('DOMContentLoaded', () => {
-    // Vérifier si le chatbot n'a pas déjà été initialisé par modals.js
-    if (!window.chatbotUIInitialized) {
-        initializeChatbotUI();
-        window.chatbotUIInitialized = true; // Marquer comme initialisé
+    if (sendBtn) {
+        sendBtn.addEventListener('click', sendMessage);
     }
-});
+    if (chatInput) {
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+    if (clearChatBtn) {
+        clearChatBtn.addEventListener('click', () => {
+            conversationHistory = []; // Effacer l'historique
+            activePersona = null; // Réinitialiser la persona
+            // Réinitialiser l'affichage du chat
+            if (chatHistory) {
+                chatHistory.innerHTML = `
+                    <div class="ai-message message">
+                        <p>Bienvenue ! Je suis votre assistant bioclimatique. Choisissez une persona pour commencer à discuter.</p>
+                    </div>
+                `;
+            }
+            // Désactiver visuellement les boutons de persona
+            personaButtons.forEach(btn => {
+                btn.classList.remove('active-persona');
+                btn.classList.remove('bg-blue-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+            });
+            console.log("Chat effacé et persona réinitialisée.");
+        });
+    }
+
+    personaButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Réinitialiser l'historique et l'affichage lors du changement de persona
+            conversationHistory = [];
+            if (chatHistory) {
+                chatHistory.innerHTML = '';
+            }
+
+            // Mettre à jour la persona active
+            activePersona = button.dataset.persona;
+            console.log(`Persona activée: ${activePersona}`);
+
+            // Mettre à jour l'état visuel des boutons de persona
+            personaButtons.forEach(btn => {
+                btn.classList.remove('active-persona');
+                btn.classList.remove('bg-blue-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+            });
+            button.classList.add('active-persona');
+            button.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+            button.classList.add('bg-blue-500', 'text-white');
+
+            displayMessage(`Vous discutez maintenant en tant que "${button.textContent}". Comment puis-je vous aider ?`, "ai");
+        });
+    });
+
+    // Initialisation : sélectionner le bouton de la persona par défaut
+    // Utilisation de 'scientifique' comme persona par défaut
+    const defaultPersonaButton = document.querySelector(`[data-persona="scientifique"]`);
+    if (defaultPersonaButton) {
+        defaultPersonaButton.classList.add('active-persona');
+        defaultPersonaButton.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+        defaultPersonaButton.classList.add('bg-blue-500', 'text-white');
+        activePersona = "scientifique"; // Définir la persona active initialement
+
+        // Message initial
+        displayMessage(`Bienvenue ! Je suis votre assistant bioclimatique. J'opère en tant que "${defaultPersonaButton.textContent}". Posez-moi vos questions.`, "ai");
+    }
+
+    console.log("Chatbot UI initialisé.");
+};
+
+// Pas besoin d'appeler initializeChatbotUI ici directement,
+// car il sera appelé par scripts.js après le chargement du DOM.

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot IA - Choisissez votre rôle</title>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Votre fichier CSS personnalisé -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .persona-selection-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        .persona-selection-container h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .persona-card {
+            background-color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+            text-decoration: none; /* For anchor tags */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+        }
+        .persona-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .persona-card i {
+            font-size: 3em;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        .persona-card h2 {
+            font-size: 1.4em;
+            margin: 0;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .persona-card p {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 25px;
+            background-color: #34495e;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .back-button:hover {
+            background-color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="persona-selection-container">
+        <h1>Choisissez votre rôle d'assistant IA</h1>
+        <p>Sélectionnez la persona avec laquelle vous souhaitez interagir pour obtenir des perspectives différentes sur la crise bioclimatique.</p>
+
+        <div class="persona-grid">
+            <a href="scientist.html" class="persona-card">
+                <i class="fas fa-flask"></i>
+                <h2>Scientifique</h2>
+                <p>Analyse objective et faits basés sur la recherche.</p>
+            </a>
+            <a href="whistleblower.html" class="persona-card">
+                <i class="fas fa-bullhorn"></i>
+                <h2>Lanceur d'alerte</h2>
+                <p>Dénonce les faits, les victimes et les manipulations.</p>
+            </a>
+            <a href="journalist.html" class="persona-card">
+                <i class="fas fa-newspaper"></i>
+                <h2>Journaliste</h2>
+                <p>Enquête indépendante et rapport critique des événements.</p>
+            </a>
+            <a href="investigator.html" class="persona-card">
+                <i class="fas fa-search"></i>
+                <h2>Enquêteur</h2>
+                <p>Collecte de preuves, témoignages et données de terrain.</p>
+            </a>
+        </div>
+
+        <a href="../index.html" class="back-button">Retour au Rapport Principal</a>
+    </div>
+</body>
+</html>
