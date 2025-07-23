@@ -11,7 +11,7 @@ export const sectionsContent = {
             Bienvenue sur cette plateforme dédiée au <span class="highlight-keyword">Suivi Bioclimatique et aux Témoignages</span> de la <span class="highlight-event">Catastrophe Annoncée</span>. Depuis le <span class="highlight-date">1er mai 2025</span>, nous observons et documentons une série d'événements climatiques et environnementaux anormaux, dont la fréquence et l'intensité soulèvent de sérieuses questions sur les dérèglements en cours.
         </p>
         <p class="alert-text">
-            <span class="highlight-date">Alerte : Le 20 juin 2025, à 10h30 CEST,</span> des observations ont révélé des <span class="highlight-event">injections massives d'aérosols stratosphériques (IAS)</span>, potentiellement à base d'<span class="highlight-keyword">iodure d'argent</span>, débutant à <span class="highlight-date">8h00</span>. En l'espace de <span class="highlight-event">2h30</span>, cette couverture atmosphérique s'est propagée de la <span class="highlight-keyword">Bretagne</span> aux régions de <span class="highlight-keyword">Normandie</span>, l'<span class="highlight-keyword">Île-de-France</span>, les <span class="highlight-keyword">Hauts-de-France</span> et le <span class="highlight-keyword">Grand Est</span>. Ces phénomènes coïncident avec la <span class="highlight-event">canicule "Henrion 40°C"</span> en cours. Une surveillance continue est maintenue pour évaluer l'évolution de cette situation.
+            <span class="highlight-date">Alerte : Le 20 juin 2025, à 10h30 CEST,</span> des observations ont révélé des <span class="highlight-event">injections massives d'aérosols stratosphériques (IAS)</span>, potentiellement à base d'<span class="highlight-keyword">iodure d'argent</span>, débutant à <span class="highlight-date">8h00</span>. En l'espace de <span class="highlight-event">2h30</span>, cette couverture atmosphérique s'est propagée de la <span class="highlight-keyword">Bretagne</span> aux régions de <span class="highlight-keyword">Normandie</span>, l'<span class="highlight-keyword">Île-de-France</span>, les <span class="highlight-keyword">Hauts-de-France</span> et le <span class="highlight-keyword">Grand Est</span>. Ces phénomènes coïncident avec la <span class="highlight-event">canicule "Henrion 40°C"</span> en cours et sont associés à des **dérèglements thermiques** (chaud/froid) et une **augmentation de l'humidité**, favorisant la **prolifération d'insectes et bactéries**. Une surveillance continue est maintenue pour évaluer l'évolution de cette situation.
         </p>
         <img src="intro.jpeg" alt="[Image principale du rapport]" class="content-image">
         <p class="image-caption">Image illustrative des phénomènes atmosphériques observés.</p>
@@ -96,20 +96,10 @@ export const sectionsContent = {
                     <li><span class="highlight-event">Événements Mondiaux (soir du 17 juillet) :</span> Des tornades et inondations majeures ont été signalées en Chine.</li>
                 </ul>
             </li>
-        </ul>
-        <h3 class="subsection-title">Observations Continues :</h3>
-        <ul class="event-list">
             <li>
-                <span class="highlight-keyword">Persistance de nuages artificiels :</span> Maintien d'une couverture nuageuse d'apparence non naturelle, affectant la luminosité et la perception du ciel.
+                <span class="highlight-date">23 Juillet 2025 :</span> <span class="highlight-event">Récidive d'Injections Aériennes Suspectes et Conséquences Bioclimatiques</span>. Observations d'activités récurrentes d'injections d'aérosols stratosphériques (géo-ingénierie) impliquant des avions de type Boeing Dreamliner et des bombardiers américains. Ces opérations seraient gérées par l'armée française sous l'autorité du Chef d'État, en lien avec l'Article 49 alinéa 3 de la Constitution pour la régulation de la température. Conséquences immédiates et anticipées : inondations (prévues pour ce soir, demain et tout le week-end), prolifération d'insectes, et grêlons de forme anormale (ressemblant à des cristaux de glace 'armes'). Le témoin certifie être sûr de ces observations.
             </li>
-            <li>
-                <span class="highlight-keyword">Anomalies de précipitations :</span> Alternance de périodes de sécheresse intense et d'épisodes de pluies diluviennes, souvent localisés.
-            </li>
-            <li>
-                <span class="highlight-keyword">Dégradation de la qualité de l'air :</span> Signalements accrus de problèmes respiratoires et d'irritations oculaires, potentiellement liés aux aérosols atmosphériques.
-            </li>
-        </ul>
-    `,
+        </ul>`,
     "preuves-visuelles": `
         <h2 class="section-title">Preuves Visuelles : Galerie d'Observations 📸</h2>
         <p>
@@ -209,7 +199,7 @@ export const sectionsContent = {
             </li>
             <li>
                 <span class="highlight-event">Iodure d'argent (AgI)</span> 💊⚠️ :
-                <p class="ml-6">Utilisé dans l'ensemencement des nuages ("cloud seeding") pour provoquer des précipitations. <strong class="text-red-600">Risques :</strong> Bien que les quantités soient faibles, l'argent est toxique, en particulier pour les espèces aquatiques (perturbation de la reproduction). Des études suggèrent un assèchement précoce des feuilles de certains arbres. L'ensemencement pourrait également déplacer les précipitations, créant des déséquilibres régionaux.</p>
+                <p class="ml-6">Utilisé dans l'ensemencement des nuages ("cloud seeding") pour provoquer des précipitations. <strong class="text-red-600">Risques :</strong> Bien que les quantités soient faibles, l'argent est toxique, en particulier pour les espèces aquatiques (perturbation de la reproduction). Des études suggèrent un assèchement précoce des feuilles de certains arbres. L'ensemencement pourrait également déplacer les précipitations, créant des déséquilibres régionaux. <span class="font-bold text-red-700">De plus, l'iodure d'argent favorise la formation de grêlons, dont la structure cristalline à base d'argent les rend plus denses et dangereux que la grêle normale, aggravant les dégâts matériels et les risques pour la vie.</span></p>
             </li>
             <li>
                 <span class="highlight-event">Calcite (carbonate de calcium)</span> 🪨 :
@@ -222,6 +212,8 @@ export const sectionsContent = {
         </ul>
         <p class="mt-4 alert-text">
             <span class="font-bold">Aggravation des Risques :</span> L'utilisation combinée de ces substances, en particulier l'ajout de **sulfure d'arsenic** aux pratiques existantes, amplifie exponentiellement les dangers. Une intervention qui chercherait à la fois à refroidir l'atmosphère et à manipuler les précipitations (par exemple, en créant des grêlons ou de la neige contaminés par l'arsenic) serait une forme très efficace de dissémination d'un poison systémique à l'échelle planétaire, avec des conséquences imprévisibles et potentiellement catastrophiques pour tous les écosystèmes et la vie sur Terre.
+            <br><br>
+            <span class="font-bold text-red-700">Le dérèglement climatique, combiné aux injections stratosphériques qui créent un 'yo-yo' thermique (chaud/froid) et augmentent l'humidité, favorise un environnement idéal pour la prolifération des champignons, des bactéries et surtout des insectes. Cette augmentation de la pression atmosphérique due au 'plafond toxique' à basse altitude (et non 25km) exacerbe ces conditions, créant un cercle vicieux de risques sanitaires et environnementaux.</span>
         </p>
     `,
     "reglementation-geoingenierie": `
@@ -260,6 +252,7 @@ export const sectionsContent = {
                 <ul>
                     <li>
                         <span class="highlight-keyword">Injection d'Aérosols Stratosphériques (IAS) :</span> Implique l'injection de particules (soufre, carbonate de calcium, iodure d'argent, sulfure d'arsenic) dans la stratosphère pour réfléchir la lumière solaire. Les risques incluent la perturbation des régimes de précipitations, l'appauvrissement de la couche d'ozone et des effets imprévus sur les écosystèmes.
+                        <span class="font-bold text-red-700">Note : Ces injections, particulièrement celles d'iodure d'argent, peuvent induire la formation de grêlons plus denses et dangereux, et contribuer à des variations de pression atmosphérique créant un 'plafond' toxique à basse altitude, favorisant l'humidité et la prolifération biologique.</span>
                     </li>
                     <li>
                         <span class="highlight-keyword">Ensemencement des Nuages (Cloud Seeding) :</span> Consiste à introduire des substances (comme l'iodure d'argent) dans les nuages pour modifier les précipitations. Bien que pratiquée localement depuis des décennies, son application à grande échelle et ses impacts à long terme sont mal compris et peu réglementés.
@@ -277,8 +270,19 @@ export const sectionsContent = {
     "observations-discrepances": `
         <h2 class="section-title">Observations et Discrépances : Le Ciel Nous Parle 🧐</h2>
         <p>
-            Au-delà des événements extrêmes, des anomalies subtiles mais persistantes sont observées dans le ciel et l'atmosphère, soulevant des questions sur des manipulations à long terme.
+            Au-delà des événements extrêmes, des anomalies subtiles mais persistantes sont observées dans le ciel et l'atmosphère, soulevant des questions sur des manipulations à long terme. Cette section présente également une carte interactive pour visualiser les événements géolocalisés.
         </p>
+        <h3 class="subsection-title">Carte des Événements Géolocalisés :</h3>
+        <p>
+            Visualisez sur la carte les événements notables tels que les tornades, ouragans, inondations, et retombées de grêlons géants, avec un suivi chronologique.
+        </p>
+        <div id="mapid" style="height: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"></div>
+        <div id="events-list" style="margin-top: 20px;">
+            <h4>Liste des événements observés :</h4>
+            <ul id="observedEventsList" class="event-list">
+                <!-- Les événements géolocalisés seront listés ici par map.js -->
+            </ul>
+        </div>
         <h3 class="subsection-title">Changements dans l'Apparence du Ciel :</h3>
         <ul class="event-list">
             <li>
@@ -336,14 +340,24 @@ export const sectionsContent = {
                 <span class="highlight-event">Stress psychologique :</span> L'incertitude climatique, la perception de manipulations non transparentes et la dégradation de l'environnement génèrent un stress, de l'anxiété et des troubles du sommeil au sein de la population.
             </li>
         </ul>
-        <h3 class="subsection-title">Risques FAMINE:</h3>
+
+        <h3 class="subsection-title">Risques FAMINE et Prolifération Biologique :</h3>
+            <ul class="event-list">
+            <li><span class="highlight-event">Risque de Famine et Impact sur la Photosynthèse</span> Un des risques les plus critiques est la création d'un "plafond stratosphérique" artificiel. Ce voile de particules chimiques dans la stratosphère modifie la composition du rayonnement solaire qui atteint la Terre. Il <span class="highlight-event">empêche les plantes de se nourrir correctement</span>. En effet, les rayons du soleil contiennent des nutriments essentiels à la photosynthèse, tels que le sodium et le magnésium. La diminution ou la modification de ces spectres lumineux vitaux entrave la croissance et le développement des plantes, réduisant ainsi la productivité agricole et augmentant le <span class="highlight-keyword">risque de famine</span>.
+            Bien que ces produits chimiques puissent être présentés comme des solutions pour faire baisser la température globale (en accord avec des objectifs superficiels, potentiellement inspirés par des accords comme l'Accord de Paris), la réalité est qu'ils engendrent une <span class="highlight-event">catastrophe bioclimatique</span> multifacette. La famine, l'usage accru de pesticides pour compenser les pertes agricoles, et l'intensification des inondations dues aux perturbations du cycle de l'eau sont autant de conséquences directes et interconnectées de ces interventions non maîtrisées.
+        </li>
+        <li>
+            <span class="highlight-event">Contamination de la chaîne alimentaire, intoxication et famine :</span> Les retombées de produits chimiques issus de la géo-ingénierie (comme l'iodure d'argent, la calcite, le soufre, l'arsenic) et l'usage à outrance de pesticides (fongicides, insecticides, herbicides, et les nouveaux introduits par décret comme l'acétamipride, le sulfoxaflor et le flupyradifuron) depuis des années, aggravé par la "Loi Duplomb", contaminent les sols agricoles et les sources d'eau. L'arsenic, par exemple, serait absorbé par les plantes (ex: salade) et les animaux d'élevage, bioaccumulant le long de la chaîne alimentaire. Cela rendrait les cultures impropres à la consommation, menaçant la sécurité alimentaire et pouvant potentiellement entraîner des famines et des intoxications alimentaires massives.
+        </li>
+        </ul>
+        <h3 class="subsection-title">Prolifération des Insectes</h3>
         <ul class="event-list">
-            <li>
-                <span class="highlight-event">Contamination de la chaîne alimentaire, intoxication et famine :</span> Les retombées de produits chimiques issus de la géo-ingénierie (comme l'iodure d'argent, la calcite, le soufre, l'arsenic) et l'usage à outrance de pesticides (fongicides, insecticides, herbicides, et les nouveaux introduits par décret comme l'acétamipride, le sulfoxaflor et le flupyradifuron) depuis des années, aggravé par la "Loi Duplomb", contaminent les sols agricoles et les sources d'eau. L'arsenic, par exemple, serait absorbé par les plantes (ex: salade) et les animaux d'élevage, bioaccumulant le long de la chaîne alimentaire. Cela rendrait les cultures impropres à la consommation, menaçant la sécurité alimentaire et pouvant potentiellement entraîner des famines et des intoxications alimentaires massives.
-            </li>
-            <li>
-                <span class="highlight-event">Prolifération des bactéries et insectes :</span> Les pics de chaleur intenses et l'augmentation significative du taux d'humidité, combinés aux dérèglements climatiques, créent un environnement propice au développement rapide et à la multiplication des bactéries et des insectes. Cette prolifération massive peut dévaster les cultures, réduire drastiquement les rendements agricoles et augmenter le risque de maladies transmises par ces vecteurs, aggravant ainsi le risque de famine et d'intoxication.
-            </li>
+        <li>
+            Un autre risque grave est la <span class="highlight-event">prolifération des insectes</span>. Les perturbations climatiques, y compris les changements de température et d'humidité induits par la géo-ingénierie, peuvent créer des conditions favorables à l'explosion de populations d'insectes nuisibles, avec des conséquences dévastatrices pour l'agriculture, la santé humaine et les écosystèmes.
+        </li>
+        <li>
+            <span class="highlight-event">Prolifération des champignons, bactéries et insectes :</span> Les dérèglements climatiques induits par la géo-ingénierie, caractérisés par un "yo-yo" thermique (alternance rapide de chaud et de froid) et une augmentation significative du taux d'humidité, créent un environnement idéal pour le développement rapide et la multiplication des champignons, des bactéries et des insectes. La présence d'un "plafond toxique" à basse altitude, résultant de l'augmentation de la pression atmosphérique due aux aérosols (principalement argent et calcite), piège cette humidité et ces agents biologiques. Cette prolifération massive peut dévaster les cultures, réduire drastiquement les rendements agricoles et augmenter le risque de maladies transmises par ces vecteurs, aggravant ainsi le risque de famine et d'intoxication. Les grêlons à base de cristaux d'argent, plus solides et dangereux, contribuent également à la dissémination de ces substances toxiques.
+        </li>
         </ul>
         <h3 class="subsection-title">Risques Environnementaux :</h3>
         <ul class="event-list">
@@ -524,5 +538,29 @@ export const sectionsContent = {
         <div id="votesList" class="event-list">
             <!-- Les signatures seront chargées ici -->
         </div>
+    `,
+    "contact-resources": `
+        <h2 class="section-title">Contact & Ressources Utiles</h2>
+        <p>
+            Si vous avez des informations, des observations ou si vous souhaitez contribuer à ce rapport, n'hésitez pas à nous contacter. Ensemble, nous pouvons exiger la transparence et la protection de notre environnement.
+        </p>
+        <ul class="resource-list">
+            <li>
+                <strong>Email :</strong> <a href="mailto:contact@bioclimat-alerte.org">contact@bioclimat-alerte.org</a>
+            </li>
+            <li>
+                <strong>Forum de discussion :</strong> Rejoignez notre communauté sur <a href="https://example.com/forum" target="_blank">bioclimat-forum.org</a>
+            </li>
+            <li>
+                <strong>Ressources complémentaires :</strong>
+                <ul>
+                    <li><a href="https://example.com/rapport-officiel" target="_blank">Rapport Officiel sur la Géo-ingénierie (hypotétique)</a></li>
+                    <li><a href="https://example.com/charte-environnement" target="_blank">Charte de l'Environnement - Article 38</a></li>
+                </ul>
+            </li>
+        </ul>
+        <p>
+            Vos contributions sont essentielles pour compléter ce rapport et renforcer notre appel à l'action.
+        </p>
     `
 };

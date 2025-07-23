@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatroom Central - Rapport Bioclimatique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    <style>
+        /* Styles spécifiques au chatroom central si besoin */
+        .central-chatroom-container {
+            display: flex; /* Utilisation de flexbox pour la mise en page latérale */
+            margin: 40px auto;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px; /* Ajuster le padding global */
+        }
+
+        .central-chatroom-sidebar {
+            width: 20%; /* Largeur de la barre latérale */
+            padding-right: 20px;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .central-chatroom-main-content {
+            width: 20%; /* Largeur de la barre latérale */
+            flex-grow: 1; /* Prend l'espace restant */
+            padding-left: 20px;
+        }
+
+        .central-chatroom-sidebar h3 {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        .persona-selection {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .persona-selection .persona-btn {
+            background-color: #e9ecef;
+            color: #34495e;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            text-align: left;
+            font-weight: 500;
+        }
+        .persona-selection .persona-btn:hover {
+            background-color: #dee2e6;
+        }
+        .persona-selection .persona-btn.active-persona {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .conversation-list {
+            max-height: 300px; /* Hauteur maximale pour la liste des conversations */
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #ffffff;
+        }
+
+        .conversation-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .conversation-list li {
+            padding: 8px 10px;
+            cursor: pointer;
+            border-bottom: 1px dashed #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .conversation-list li:last-child {
+            border-bottom: none;
+        }
+        .conversation-list li:hover {
+            background-color: #f0f0f0;
+        }
+        .conversation-list li.active-conversation {
+            background-color: #d1ecf1;
+            font-weight: bold;
+        }
+        .conversation-list .delete-btn {
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        .conversation-list .delete-btn:hover {
+            text-decoration: underline;
+        }
+        .new-conversation-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            transition: background-color 0.2s ease;
+        }
+        .new-conversation-btn:hover {
+            background-color: #218838;
+        }
+
+        .central-chatroom-main-content h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        #centralChatHistory {
+            min-height: 400px;
+            max-height: 600px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espace entre les messages */
+        }
+
+        /* Réutilisation des styles de message du chatbot */
+        #centralChatHistory .message {
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 75%;
+            word-wrap: break-word;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        #centralChatHistory .user-message {
+            background-color: #e0f7fa; /* Bleu clair */
+            color: #2c3e50;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        #centralChatHistory .ai-message {
+            background-color: #f0f4f7; /* Gris clair */
+            color: #34495e;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        #centralChatHistory .ai-message.transfer-message {
+            background-color: #e6f7ff; /* Légèrement différent pour les transferts */
+            border-left: 4px solid #007bff; /* Barre bleue */
+            padding-left: 11px;
+        }
+
+        #centralChatHistory .ai-message.system-message {
+            background-color: #fff3cd; /* Jaune clair pour les messages système */
+            color: #856404;
+            text-align: center;
+            align-self: center;
+            width: 80%;
+        }
+
+
+        .conversation-separator {
+            text-align: center;
+            margin: 25px 0;
+            font-weight: bold;
+            color: #6c757d;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .conversation-separator::before,
+        .conversation-separator::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: #ced4da;
+            margin: 0 10px;
+        }
+        .conversation-separator span {
+            background-color: #f8f9fa;
+            padding: 0 10px;
+        }
+
+        .chatroom-input-area {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .chatroom-input-area input[type="text"] {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1em;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .chatroom-input-area button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease;
+        }
+
+        .chatroom-input-area button:hover {
+            background-color: #0056b3;
+        }
+
+        .chatroom-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .chatroom-actions button {
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-clear-all {
+            background-color: #dc3545; /* Rouge pour effacer */
+            color: white;
+            border: none;
+        }
+        .btn-clear-all:hover {
+            background-color: #c82333;
+        }
+        .btn-send-to-ai {
+            background-color: #17a2b8; /* Cyan pour l'IA */
+            color: white;
+            border: none;
+        }
+        .btn-send-to-ai:hover {
+            background-color: #138496;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Rapport d'Urgence : Géo-ingénierie et Crise Bioclimatique</h1>
+        <a href="../index.html" class="button-link ml-4">🏠 Retour au Rapport</a>
+    </div>
+
+    <div class="container">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html#home" class="nav-link"><i class="fas fa-home"></i> Accueil du Rapport</a></li>
+                <li><a href="../index.html#petition-form" class="nav-link"><i class="fas fa-file-signature"></i> Lancer une Pétition</a></li>
+                <li><a href="../index.html#contact-resources" class="nav-link"><i class="fas fa-address-book"></i> Contact & Ressources</a></li>
+                <li><a href="missions.html" class="nav-link" data-page="roles-overview"><i class="fas fa-users"></i> Rôles & Missions</a></li>
+                <li class="active"><a href="central-chatroom.html" class="nav-link active"><i class="fas fa-comments"></i> Chatroom Central</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-layout-columns">
+            <main class="main-content-column full-width">
+                <section id="central-chatroom-content" class="content-section active">
+                    <div class="central-chatroom-container">
+                        <aside class="central-chatroom-sidebar">
+                            <button id="newConversationBtn" class="new-conversation-btn">Nouvelle Conversation</button>
+                            <h3>Mes Conversations</h3>
+                            <div class="conversation-list" id="conversationList">
+                                <ul>
+                                    <li data-id="default-global-chat" class="active-conversation">
+                                        Chat Global
+                                        <button class="delete-btn" data-id="default-global-chat"><i class="fas fa-trash"></i></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3>Choisir une Persona</h3>
+                            <div class="persona-selection">
+                                <button class="persona-btn" data-persona="scientifique">Scientifique</button>
+                                <button class="persona-btn" data-persona="lanceur-alerte">Lanceur d'alerte</button>
+                                <button class="persona-btn" data-persona="journaliste">Journaliste</button>
+                                <button class="persona-btn" data-persona="enquêteur">Enquêteur</button>
+                                <button class="persona-btn" data-persona="general">Général (IA Centrale)</button>
+                            </div>
+                        
+                        </aside>
+
+                        <div class="central-chatroom-main-content">
+                            <h2>Chatroom Central</h2>
+                            <div id="centralChatHistory">
+                                <p>Bienvenue dans le Chatroom Central. Sélectionnez une persona à gauche pour commencer une nouvelle conversation, ou cliquez sur une conversation existante.</p>
+                            </div>
+                            <div class="chatroom-input-area">
+                                <input type="text" id="centralChatInput" placeholder="Envoyer un message...">
+                                <button id="sendGlobalMessageBtn">Envoyer</button>
+                            </div>
+                            <div class="chatroom-actions">
+                                <button id="clearCurrentConversationBtn" class="btn-clear-all">Effacer cette conversation</button>
+                                <button id="askCentralAIBtn" class="btn-send-to-ai">Demander à l'IA</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="../js/pages/central-chatroom.js"></script>
+    <script src="../js/modals.js"></script>
+    <script type="module" src="../js/sectionContent.js"></script>
+    <script type="module" src="../js/petition.js"></script>
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

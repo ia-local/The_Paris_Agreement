@@ -1,0 +1,322 @@
+[
+  {
+    "id": "evt-20250719-cn-shanghai",
+    "title": "Inondations Diluviennes - Shanghai, Chine",
+    "type": "inondation_pluie_diluvienne",
+    "location": "Shanghai, Chine",
+    "latitude": 31.2304,
+    "longitude": 121.4737,
+    "timestamp": "2025-07-19T02:00:00Z",
+    "description": "Pluies diluviennes continues pendant 24 heures, provoquant des inondations généralisées et la paralysie de la ville.",
+    "videoUrl": "/media/shanghai_inondation_20250719.mp4"
+  },
+  {
+    "id": "evt-20250719-us-texas",
+    "title": "Impact Sonore Massif & Secousses - Texas, USA",
+    "type": "impact_sonore_inconnu",
+    "location": "Texas, USA",
+    "latitude": 31.9686,
+    "longitude": -99.9018,
+    "timestamp": "2025-07-19T08:30:00Z",
+    "description": "Un 'bang' sonore assourdissant ressenti sur une vaste zone, suivi de légères secousses. Origine inconnue, spéculations sur des phénomènes atmosphériques ou géo-ingénierie.",
+    "videoUrl": "/media/texas_impact_sonore_20250719.mp4"
+  },
+  {
+    "id": "evt-20250719-us-newmexico",
+    "title": "Phénomène Atmosphérique Inexpliqué - Nouveau-Mexique, USA",
+    "type": "phenomene_atmospherique",
+    "location": "Nouveau-Mexique, USA",
+    "latitude": 34.3071,
+    "longitude": -106.0181,
+    "timestamp": "2025-07-19T09:00:00Z",
+    "description": "Observations de formations nuageuses inhabituelles et de lumières dans le ciel, coïncidant avec des relevés anormaux de particules atmosphériques.",
+    "videoUrl": "/media/newmexico_ciel_20250719.mp4"
+  },
+  {
+    "id": "evt-20250719-tw-taipei",
+    "title": "Inondations Urbaines Sévères - Taipei, Taïwan",
+    "type": "inondation_urbaine",
+    "location": "Taipei, Taïwan",
+    "latitude": 25.0330,
+    "longitude": 121.5654,
+    "timestamp": "2025-07-19T04:30:00Z",
+    "description": "Inondations majeures dans la capitale après des pluies torrentielles. Infrastructures de drainage dépassées, nombreux dégâts matériels.",
+    "videoUrl": "/media/taipei_inondation_20250719.mp4"
+  },
+  {
+    "id": "evt-20250719-vn-hochiminh",
+    "title": "Pluies Diluviennes et Glissements de Terrain - Vietnam (Sud)",
+    "type": "pluie_glissement_terrain",
+    "location": "Hô Chi Minh-Ville, Vietnam",
+    "latitude": 10.8231,
+    "longitude": 106.6297,
+    "timestamp": "2025-07-19T06:00:00Z",
+    "description": "Fortes pluies entraînant des glissements de terrain et des crues subites dans les régions montagneuses du sud du Vietnam. Impact sur les zones urbaines côtières.",
+    "videoUrl": "/media/vietnam_pluie_20250719.mp4"
+  },
+  {
+    "id": "evt-20250719-ro-bucharest",
+    "title": "Orages Violents et Grêle - Bucarest, Roumanie",
+    "type": "orage_grele",
+    "location": "Bucarest, Roumanie",
+    "latitude": 44.4268,
+    "longitude": 26.1025,
+    "timestamp": "2025-07-19T17:00:00Z",
+    "description": "Orages d'une violence inouïe avec des grêlons de grande taille, causant des dégâts importants aux cultures et aux véhicules.",
+    "videoUrl": "/media/roumanie_orage_20250719.mp4"
+  },
+  {
+    "id": "evt-20250718-fr-normandie",
+    "title": "Tornade inhabituelle",
+    "type": "tornade",
+    "location": "Bavent, Normandie, France",
+    "latitude": 49.255,
+    "longitude": -0.197,
+    "timestamp": "2025-07-18T14:30:00Z",
+    "description": "Tornade de force modérée, causant des dégâts localisés. Observation de retombées de grêlons de 5-7 cm."
+  },
+  {
+    "id": "evt-20250715-fr-nimes",
+    "title": "Inondations soudaines",
+    "type": "inondation",
+    "location": "Nîmes, France",
+    "latitude": 43.836,
+    "longitude": 4.360,
+    "timestamp": "2025-07-15T08:00:00Z",
+    "description": "Fortes précipitations entraînant des inondations éclair en centre-ville."
+  },
+  {
+    "id": "evt-20250710-us-eastcoast",
+    "title": "Ouragan Atlantique (anormalement précoce)",
+    "type": "ouragan",
+    "location": "Côte Est des États-Unis",
+    "latitude": 34.225,
+    "longitude": -77.945,
+    "timestamp": "2025-07-10T20:00:00Z",
+    "description": "Ouragan de catégorie 2, impact significatif sur les zones côtières."
+  },
+  {
+    "id": "evt-20250712-fr-lyon",
+    "title": "Chute de grêlons géants",
+    "type": "grêle",
+    "location": "Lyon, France",
+    "latitude": 45.750,
+    "longitude": 4.850,
+    "timestamp": "2025-07-12T17:00:00Z",
+    "description": "Grêlons de 8-10 cm de diamètre, causant des dommages importants aux véhicules et toitures."
+  },
+  {
+    "id": "evt-20250719-fr-bordeaux",
+    "title": "Plafond gris et pulvérisations suspectes",
+    "type": "géo-ingénierie",
+    "location": "Bordeaux, France",
+    "latitude": 44.837,
+    "longitude": -0.579,
+    "timestamp": "2025-07-19T10:00:00Z",
+    "description": "Observation de traînées persistantes et d'un voile gris épais après le passage d'avions non identifiés."
+  },
+  {
+    "id": "evt-20250603-fr-var",
+    "title": "Crues torrentielles Var",
+    "type": "inondation",
+    "location": "Toulon, France (Var)",
+    "latitude": 43.1242,
+    "longitude": 5.928,
+    "timestamp": "2025-06-03T00:00:00Z",
+    "description": "Orages d'une violence exceptionnelle dans le Var, provoquant des crues torrentielles."
+  },
+  {
+    "id": "evt-20250610-fr-paris",
+    "title": "Canicule précoce Paris",
+    "type": "canicule",
+    "location": "Paris, France",
+    "latitude": 48.8566,
+    "longitude": 2.3522,
+    "timestamp": "2025-06-10T12:00:00Z",
+    "description": "Record de température pour un mois de juin à Paris (35°C)."
+  },
+  {
+    "id": "evt-20250612-fr-vendee",
+    "title": "Tornade forte intensité Vendée",
+    "type": "tornade",
+    "location": "La Roche-sur-Yon, France (Vendée)",
+    "latitude": 46.6718,
+    "longitude": -1.4265,
+    "timestamp": "2025-06-12T10:00:00Z",
+    "description": "Tornade de forte intensité signalée en Vendée."
+  },
+  {
+    "id": "evt-20250618-fr-nouvelleaquitaine",
+    "title": "Orages supercellulaires Nouvelle-Aquitaine",
+    "type": "orage",
+    "location": "Limoges, France (Nouvelle-Aquitaine)",
+    "latitude": 45.8583,
+    "longitude": 1.2611,
+    "timestamp": "2025-06-18T16:00:00Z",
+    "description": "Multiples cellules orageuses supercellulaires observées avec des grêlons de grande taille."
+  },
+  {
+    "id": "evt-20250604-us-missouri",
+    "title": "Tornade - St. Louis, Missouri, USA",
+    "type": "tornade",
+    "location": "St. Louis, Missouri, USA",
+    "latitude": 38.6270,
+    "longitude": -90.1994,
+    "timestamp": "2025-06-04T19:50:00Z",
+    "description": "Tornade de force modérée confirmée, causant des dégâts localisés dans la région de St. Louis.",
+    "videoUrl": "/media/missouri_tornado_20250604.mp4"
+  },
+  {
+    "id": "evt-20250715-us-virginia",
+    "title": "Vents Violents et Inondations Éclair - Petersburg, Virginie, USA",
+    "type": "vents_violents_inondation",
+    "location": "Petersburg, Virginie, USA",
+    "latitude": 37.2254,
+    "longitude": -77.4000,
+    "timestamp": "2025-07-15T22:00:00Z",
+    "description": "Fortes pluies et vents extrêmes provoquant des inondations éclair et des coupures de courant significatives.",
+    "videoUrl": "/media/virginia_floods_20250715.mp4"
+  },
+  {
+    "id": "evt-20250716-us-arkansas",
+    "title": "Tornade - Lake City, Arkansas, USA",
+    "type": "tornade",
+    "location": "Lake City, Arkansas, USA",
+    "latitude": 35.8295,
+    "longitude": -90.3540,
+    "timestamp": "2025-07-16T18:00:00Z",
+    "description": "Tornade de faible intensité signalée près de Lake City, causant des dommages mineurs aux structures et aux arbres.",
+    "videoUrl": "/media/arkansas_tornado_20250716.mp4"
+  },
+  {
+    "id": "evt-20250716-us-indiana",
+    "title": "Inondations - Ripley County, Indiana, USA",
+    "type": "inondation",
+    "location": "Ripley County, Indiana, USA",
+    "latitude": 39.0833,
+    "longitude": -85.2000,
+    "timestamp": "2025-07-16T06:50:00Z",
+    "description": "Alerte inondation due à des pluies excessives, affectant les zones basses et les routes secondaires.",
+    "videoUrl": "/media/indiana_floods_20250716.mp4"
+  },
+  {
+    "id": "evt-20250710-us-boston",
+    "title": "Inondations Flash - Sud de Boston, Massachusetts, USA",
+    "type": "inondation_flash",
+    "location": "Quincy, Massachusetts, USA (Sud de Boston)",
+    "latitude": 42.2529,
+    "longitude": -71.0023,
+    "timestamp": "2025-07-10T09:00:00Z",
+    "description": "Pluies torrentielles provoquant des inondations éclair, notamment sur l'Interstate 93 et dans les zones urbaines du sud de Boston.",
+    "videoUrl": "/media/boston_floods_20250710.mp4"
+  },
+  {
+    "id": "evt-20250717-gp-guadeloupe",
+    "title": "Inondations - Guadeloupe, France",
+    "type": "inondation",
+    "location": "Basse-Terre, Guadeloupe, France",
+    "latitude": 15.9969,
+    "longitude": -61.7247,
+    "timestamp": "2025-07-17T14:00:00Z",
+    "description": "Fortes pluies entraînant des inondations localisées et des perturbations dans plusieurs communes de l'île.",
+    "videoUrl": "/media/guadeloupe_floods_20250717.mp4"
+  },
+  {
+    "id": "evt-20250701-us-lasvegas",
+    "title": "Tempête de Poussière et Vents Violents - Las Vegas, Nevada, USA",
+    "type": "tempete_de_poussiere_vents_violents",
+    "location": "Las Vegas, Nevada, USA",
+    "latitude": 36.1699,
+    "longitude": -115.1398,
+    "timestamp": "2025-07-01T16:00:00Z",
+    "description": "Vents de plus de 60 mph et tempête de poussière massive recouvrant la ville, causant des coupures de courant et une visibilité réduite.",
+    "videoUrl": "/media/lasvegas_duststorm_20250701.mp4"
+  },
+  {
+    "id": "evt-20250720-us-southdakota",
+    "title": "Orages Violents et Inondations - Todd County, Dakota du Sud, USA",
+    "type": "orage_inondation",
+    "location": "Todd County, Dakota du Sud, USA",
+    "latitude": 43.1114,
+    "longitude": -100.9932,
+    "timestamp": "2025-07-20T19:00:00Z",
+    "description": "Série d'orages violents avec de fortes pluies et potentiellement de la grêle, provoquant des inondations locales.",
+    "videoUrl": "/media/southdakota_storms_20250720.mp4"
+  },
+  {
+    "id": "evt-20250720-us-springfield-il",
+    "title": "Vents Dévastateurs et Orages - Springfield, Illinois, USA",
+    "type": "vents_violents_orage",
+    "location": "Springfield, Illinois, USA",
+    "latitude": 39.7817,
+    "longitude": -89.6501,
+    "timestamp": "2025-07-20T21:00:00Z",
+    "description": "Des orages violents ont frappé la région avec des vents dévastateurs, causant des dégâts aux arbres et aux infrastructures.",
+    "videoUrl": "/media/springfield_il_winds_20250720.mp4"
+  },
+  {
+    "id": "evt-20250720-cn-guangdong",
+    "title": "Typhon Wipha - Pluies et Vents - Guangdong, Chine",
+    "type": "typhon_inondation",
+    "location": "Guangzhou, Guangdong, Chine",
+    "latitude": 23.1291,
+    "longitude": 113.2644,
+    "timestamp": "2025-07-20T16:00:00Z",
+    "description": "Le Typhon Wipha apporte des pluies torrentielles et des vents forts, causant des inondations généralisées et des perturbations.",
+    "videoUrl": "/media/guangdong_wipha_20250720.mp4"
+  },
+  {
+    "id": "evt-20250628-cn-guizhou",
+    "title": "Inondations Massives - Rongjiang, Guizhou, Chine",
+    "type": "inondation",
+    "location": "Rongjiang County, Guizhou, Chine",
+    "latitude": 25.9686,
+    "longitude": 108.6657,
+    "timestamp": "2025-06-28T08:00:00Z",
+    "description": "Pluies incessantes provoquant des inondations record, forçant l'évacuation de milliers de personnes et endommageant gravement les infrastructures.",
+    "videoUrl": "/media/guizhou_floods_20250628.mp4"
+  },
+  {
+    "id": "evt-20250716-us-saukcity",
+    "title": "Tornade et Injections Stratosphériques - Sauk City, Wisconsin, USA",
+    "type": "tornade_geo_ingenierie",
+    "location": "Sauk City, Wisconsin, USA",
+    "latitude": 43.274130,
+    "longitude": -89.728310,
+    "timestamp": "2025-07-16T10:20:00Z",
+    "description": "Une tornade a été signalée près de Sauk City. Cet événement est lié à des observations de géo-ingénierie et d'injections d'aérosols stratosphériques dans la région, soulevant des questions sur leur impact potentiel sur les phénomènes météorologiques.",
+    "videoUrl": "/media/saukcity_tornado_geo_eng_20250716.mp4"
+  },
+  {
+    "id": "evt-20250721-fr-saoneetloire",
+    "title": "Orages Violents, Vents et Inondations - Saône-et-Loire, France",
+    "type": "orage_vent_inondation",
+    "location": "Saône-et-Loire, France",
+    "latitude": 46.6000,
+    "longitude": 4.5000,
+    "timestamp": "2025-07-21T18:00:00Z",
+    "description": "De violents orages accompagnés de vents forts et d'inondations ont frappé la Saône-et-Loire, entraînant la mort d'une personne et des dégâts importants.",
+    "videoUrl": "/media/saone_et_loire_orage_20250721.mp4"
+  },
+  {
+    "id": "evt-20250721-fr-hautesavoie",
+    "title": "Dégâts Importants et Coupures de Courant - Haute-Savoie, France",
+    "type": "degats_coupures_courant",
+    "location": "Haute-Savoie, France",
+    "latitude": 46.0000,
+    "longitude": 6.3333,
+    "timestamp": "2025-07-21T20:00:00Z",
+    "description": "La Haute-Savoie a subi d'importants dégâts et de nombreuses coupures de courant suite à de fortes intempéries. L'étendue des dommages est en cours d'évaluation.",
+    "videoUrl": "/media/haute_savoie_degats_20250721.mp4"
+  },
+  {
+    "id": "evt-20250723-fr-evreux-fauville",
+    "title": "Activité Aérienne Suspecte - Évreux-Fauville Air Base, France",
+    "type": "geo_ingenierie_aerienne",
+    "location": "Évreux-Fauville Air Base, France",
+    "latitude": 49.0183,
+    "longitude": 1.2067,
+    "timestamp": "2025-07-23T15:00:00Z",
+    "description": "Récidive d'injections d'aérosols stratosphériques (géo-ingénierie) observées au-dessus d'Évreux-Fauville Air Base. Implication de Boeing Dreamliner et bombardiers américains, gérés par l'armée française. Concomitant avec des inondations prévues, prolifération d'insectes et grêlons anormaux (cristaux d'argent)."
+  }
+]

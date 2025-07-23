@@ -3,110 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bioclimat - Accueil</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Rapport d'Urgence : Géo-ingénierie et Crise Bioclimatique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <!-- Leaflet CSS pour la carte (avec intégrité spécifiée) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
 </head>
 <body>
     <div class="header">
-        <h1>Bioclimat : Informations et Actions</h1>
-        <button id="openChatbotBtn">Ouvrir Chatbot</button>
+        <h1>Rapport d'Urgence : Géo-ingénierie et Crise Bioclimatique</h1>
+        <button id="openChatbotBtn">💬 Chatbot IA</button>
+        <a href="pages/ai-tools.html" class="button-link ml-4">🛠️ Outils IA</a>
     </div>
 
-    <div class="main-nav">
-        <ul>
-            <li><a href="#" class="active"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="./pages/journalist.html"><i class="fas fa-newspaper"></i> Journaliste</a></li>
-            <li><a href="./pages/whistleblower.html"><i class="fas fa-bullhorn"></i> Lanceur d'alerte</a></li>
-            <li><a href="./pages/scientist.html"><i class="fas fa-flask"></i> Scientifique</a></li>
-            <li><a href="./pages/investigator.html"><i class="fas fa-magnifying-glass"></i> Enquêteur</a></li>
-        </ul>
-    </div>
+    <div class="container">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#introduction" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Accueil du Rapport</a></li>
+                <li><a href="#petition-form" class="nav-link" data-page="petition-form-nav"><i class="fas fa-file-signature"></i> Lancer une Pétition</a></li>
+                <li><a href="#contact-resources" class="nav-link" data-page="contact-resources-nav"><i class="fas fa-address-book"></i> Contact & Ressources</a></li>
+                <li><a href="pages/missions.html" class="nav-link" data-page="roles-overview-nav"><i class="fas fa-users"></i> Rôles & Missions</a></li>
+            </ul>
+        </nav>
 
-    <div class="main-layout-columns container">
-        <aside class="aside-column">
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="#introduction" class="active"><i class="fas fa-info-circle"></i> Introduction</a></li>
-                    <li><a href="#geo-ingenierie"><i class="fas fa-cloud"></i> Géo-ingénierie</a></li>
-                    <li><a href="#catastrophe-bioclimatique"><i class="fas fa-exclamation-circle"></i> Catastrophe Bioclimatique</a></li>
-                    <li><a href="#solutions"><i class="fas fa-lightbulb"></i> Solutions & Actions</a></li>
-                    <li><a href="#galerie-images"><i class="fas fa-images"></i> Galerie Visuelle</a></li>
-                    <li><a href="./pages/missions.html"><i class="fas fa-flag-checkered"></i> Nos Missions</a></li>
-                    <li><a href="#contact"> pas une<i class="fas fa-envelope"></i> Contact</a></li>
-                </ul>
-            </nav>
-        </aside>
+        <div class="main-layout-columns">
+            <aside class="aside-column">
+                <h2 class="subsection-title">Navigation Rapide</h2>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li>
+                            <a href="#introduction" class="sidebar-link active" data-section-id="introduction"><i class="fas fa-info-circle"></i> Introduction</a>
+                        </li>
+                        <li>
+                            <a href="#chronologie-evenements" class="sidebar-link" data-section-id="chronologie-evenements"><i class="fas fa-history"></i> Chronologie des Événements</a>
+                        </li>
+                        <li>
+                            <a href="#preuves-visuelles" class="sidebar-link" data-section-id="preuves-visuelles"><i class="fas fa-images"></i> Preuves Visuelles</a>
+                        </li>
+                        <li>
+                            <a href="#impact-nuages" class="sidebar-link" data-section-id="impact-nuages"><i class="fas fa-cloud"></i> Impact sur les Nuages</a>
+                        </li>
+                        <li>
+                            <a href="#methodes-suspectees" class="sidebar-link" data-section-id="methodes-suspectees"><i class="fas fa-flask"></i> Méthodes Suspectées</a>
+                        </li>
+                        <li>
+                            <a href="#reglementation-geoingenierie" class="sidebar-link" data-section-id="reglementation-geoingenierie"><i class="fas fa-balance-scale"></i> Réglementation Géo-ingénierie</a>
+                        </li>
+                        <li>
+                            <a href="#observations-discrepances" class="sidebar-link" data-section-id="observations-discrepances"><i class="fas fa-eye"></i> Observations & Discrépances</a>
+                        </li>
+                        <li>
+                            <a href="#risques" class="sidebar-link" data-section-id="risques"><i class="fas fa-exclamation-triangle"></i> Risques & Conséquences</a>
+                        </li>
+                        <li>
+                            <a href="#demonstration" class="sidebar-link" data-section-id="demonstration"><i class="fas fa-laptop-code"></i> Démonstration</a>
+                        </li>
+                        <li>
+                            <a href="#appel-action" class="sidebar-link" data-section-id="appel-action"><i class="fas fa-bullhorn"></i> Appel à l'Action</a>
+                        </li>
+                        <li>
+                            <a href="pages/missions.html" class="sidebar-link" data-section-id="roles-overview-sidebar"><i class="fas fa-users"></i> Rôles & Missions</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="action-buttons">
+                    <button id="goToPetitionBtn" class="btn-secondary">Signer la Pétition</button>
+                    <button id="shareObservationBtn" class="btn-secondary">Partager une Observation</button>
+                </div>
+            </aside>
 
-        <main class="main-content-column">
-            <section id="introduction" class="content-section active">
-                <h2 class="section-title">Introduction</h2>
-                <p>Bienvenue sur Bioclimat, votre plateforme d'information et d'action dédiée aux enjeux climatiques et environnementaux. Notre mission est de démystifier la complexe interconnexion entre les phénomènes météorologiques extrêmes, la géo-ingénierie et leurs impacts sur la planète et ses habitants. Nous croyons en l'importance d'une information transparente et accessible pour que chacun puisse comprendre les défis et participer activement à la recherche de solutions.</p>
-                <p>La science, les données et les témoignages de terrain sont au cœur de notre démarche pour éclairer les réalités de la catastrophe bioclimatique. Nous nous engageons à fournir des analyses rigoureuses, des mises à jour régulières et des outils pour l'action citoyenne.</p>
-                <img src="./images/bioclimat_intro.jpg" alt="Vue aérienne d'un paysage sous un ciel chargé" class="content-image">
-                <p class="image-caption">L'environnement face aux défis climatiques.</p>
-            </section>
+            <main class="main-content-column">
+                <section id="introduction" class="content-section active">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
 
-            <section id="geo-ingenierie" class="content-section">
-                <h2 class="section-title">La Géo-ingénierie et ses Conséquences</h2>
-                <p>La géo-ingénierie, ou ingénierie climatique, regroupe des techniques visant à manipuler délibérément le système climatique terrestre pour contrer les effets du changement climatique. Parmi ces techniques, les "injections aérosols stratosphériques" (IAS), qui consistent à diffuser des particules dans la stratosphère pour réfléchir une partie du rayonnement solaire, sont particulièrement controversées. Bien que présentées comme des solutions potentielles, leurs impacts à long terme sur l'écosystème, la santé humaine et les régimes météorologiques mondiaux restent largement méconnus et potentiellement dangereux.</p>
-                <h3 class="subsection-title">Les Injections Aérosols Stratosphériques (IAS)</h3>
-                <p>Les IAS impliquent la dispersion de substances comme le dioxyde de soufre (SO2) dans l'atmosphère. L'objectif est de créer un effet de voile qui diminuerait la quantité de lumière solaire atteignant la surface de la Terre, imitant ainsi les effets de grandes éruptions volcaniques. Cependant, cette approche soulève de nombreuses questions éthiques, écologiques et géopolitiques. Des voix s'élèvent pour alerter sur les risques de dérèglement encore plus importants du climat, la perturbation des cycles hydrologiques, et des effets imprévus sur la faune et la flore.</p>
-                <p class="alert-text">Attention : La manipulation délibérée du climat pourrait avoir des conséquences irréversibles.</p>
-                <img src="./images/geo_ing_avion.jpg" alt="Avion laissant des traînées dans le ciel" class="content-image">
-                <p class="image-caption">Des traînées aériennes, source d'interrogations.</p>
-            </section>
+                <section id="chronologie-evenements" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
 
-            <section id="catastrophe-bioclimatique" class="content-section">
-                <h2 class="section-title">La Catastrophe Bioclimatique : Réalités et Impacts</h2>
-                <p>La "catastrophe bioclimatique" décrit l'ensemble des bouleversements climatiques et environnementaux qui menacent les écosystèmes et la vie sur Terre. Elle se manifeste par une augmentation des événements météorologiques extrêmes : vagues de chaleur intenses, sécheresses prolongées, inondations dévastatrices, tempêtes et ouragans d'une violence inédite. Ces phénomènes ne sont pas des incidents isolés mais des symptômes d'un dérèglement global, dont les IAS pourraient paradoxalement accélérer ou modifier la dynamique.</p>
-                <h3 class="subsection-title">Témoignages et Observations</h3>
-                <p>Partout dans le monde, des citoyens, des scientifiques et des journalistes observent et documentent ces changements. Des pluies anormales aux périodes de sécheresse inédites, en passant par des perturbations des cycles naturels, les signes sont de plus en plus visibles. Nous relayons ici des informations et des analyses pour comprendre l'ampleur de ces impacts et leurs liens potentiels avec les pratiques de géo-ingénierie.</p>
-                <ul class="event-list">
-                    <li><span class="highlight-event">Inondations record en Europe</span> : Des crues exceptionnelles ont touché plusieurs pays, submergeant des villes entières et provoquant des déplacements massifs de population.</li>
-                    <li><span class="highlight-event">Sécheresses en Afrique</span> : Des millions de personnes souffrent de pénuries d'eau et de famine dues à des sécheresses prolongées, exacerbées par des phénomènes climatiques anormaux.</li>
-                    <li><span class="highlight-event">Ouragans dans les Caraïbes</span> : Intensité et fréquence accrues des ouragans dévastant les îles et les côtes, menaçant les infrastructures et les vies.</li>
-                </ul>
-                <img src="./images/global_warming.jpg" alt="Terre subissant des phénomènes climatiques extrêmes" class="content-image">
-                <p class="image-caption">Le climat se dérègle : une réalité de plus en plus visible.</p>
-            </section>
+                <section id="preuves-visuelles" class="content-section hidden">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
+                <section id="impact-nuages" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
 
-            <section id="solutions" class="content-section">
-                <h2 class="section-title">Solutions et Actions Citoyennes</h2>
-                <p>Face à l'urgence, il est essentiel d'agir. Bioclimat propose des pistes de solutions et encourage l'engagement citoyen pour infléchir le cours des choses. Cela passe par la sensibilisation, la pression sur les décideurs, et le soutien aux initiatives de recherche et de développement de solutions durables et respectueuses de l'environnement.</p>
-                <h3 class="subsection-title">Pétition pour une Gouvernance Climatique</h3>
-                <p>Nous lançons une pétition pour exiger une transparence totale sur les opérations de géo-ingénierie et la mise en place d'une gouvernance internationale stricte, basée sur le principe de précaution. Signez notre pétition et faites entendre votre voix pour un avenir climatique plus sûr.</p>
-                <p>De plus, nous mettons en lumière les alternatives et les initiatives locales qui contribuent à la résilience écologique et au développement de pratiques respectueuses de l'environnement. Chaque geste compte !</p>
-                <button class="btn-primary">Signer la Pétition</button>
-            </section>
+                <section id="methodes-suspectees" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
 
-            <section id="galerie-images" class="content-section">
-                <h2 class="section-title">Galerie Visuelle : Témoignages en Images</h2>
-                <p>Découvrez des photos et vidéos qui documentent les phénomènes climatiques, les signes de géo-ingénierie et les impacts sur notre environnement. Cliquez sur une image pour la voir en grand et obtenir une description générée par l'IA.</p>
-                <div class="gallery-grid" id="galleryContainer">
-                    </div>
-            </section>
+                <section id="reglementation-geoingenierie" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
 
-            <section id="contact" class="content-section">
-                <h2 class="section-title">Contactez-nous</h2>
-                <p>Pour toute question, information ou témoignage, n'hésitez pas à nous contacter via le formulaire ci-dessous. Votre contribution est précieuse.</p>
-                <form class="petition-form">
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name" required>
+                <section id="observations-discrepances" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js (inclura la carte) -->
+                </section>
 
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" required>
+                <section id="risques" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
 
-                    <label for="message">Votre message :</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
+                <section id="demonstration" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
 
-                    <button type="submit" class="btn-primary">Envoyer</button>
-                </form>
-            </section>
-        </main>
+                <section id="appel-action" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
+
+                <section id="petition-form" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
+
+                <section id="contact-resources" class="content-section">
+                    <!-- Contenu injecté par sectionContent.js -->
+                </section>
+
+            </main>
+        </div>
     </div>
 
     <div class="footer">
@@ -114,32 +134,29 @@
     </div>
 
     <div id="chatbotModal" class="modal">
-        <div class="modal-content chatbot-modal-content">
-            <span class="close-button" id="closeChatbotBtn">&times;</span>
+        <div class="modal-content chatbot-modal-content"> <span class="close-button" id="closeChatbotBtn">&times;</span>
             <h2>Chatbot Bioclimatique</h2>
-            <div class="chat-main-container">
-                <aside class="chat-persona-aside">
-                    <h3>Personas</h3>
+            <div class="chat-main-container"> <aside class="chat-persona-aside"> <h3>Personas</h3>
                     <div class="persona-selection">
-                        <button class="persona-btn" data-persona="scientifique">Scientifique</button>
-                        <button class="persona-btn" data-persona="lanceur-alerte">Lanceur d'alerte</button>
-                        <button class="persona-btn" data-persona="journaliste">Journaliste</button>
-                        <button class="persona-btn" data-persona="enquêteur">Enquêteur</button>
+                        <button class="persona-btn bg-gray-200 hover:bg-gray-300" data-persona="scientifique">Scientifique</button>
+                        <button class="persona-btn bg-gray-200 hover:bg-gray-300" data-persona="lanceur-alerte">Lanceur d'alerte</button>
+                        <button class="persona-btn bg-gray-200 hover:bg-gray-300" data-persona="journaliste">Journaliste</button>
+                        <button class="persona-btn bg-gray-200 hover:bg-gray-300" data-persona="enquêteur">Enquêteur</button>
                     </div>
                 </aside>
-                <div class="chat-content-area">
-                    <div id="chatHistory">
+                <div class="chat-content-area"> <div id="chatHistory" class="flex-1 overflow-y-auto p-4 border rounded-lg bg-gray-50">
                         </div>
-                    <div class="chat-input-area">
-                        <input type="text" id="chatInput" placeholder="Tapez votre message ici...">
+                    <div class="chat-input-area mt-4 flex">
+                        <input type="text" id="chatInput" placeholder="Tapez votre message ici..." class="flex-1 p-2 border rounded-lg">
                         <button id="sendBtn" class="btn-primary">Envoyer</button>
-                        <button id="clearChatBtn" class="btn-secondary">Effacer</button>
+                        <button id="clearChatBtn" class="btn-secondary ml-2">Effacer</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modale pour l'affichage des médias (galerie) -->
     <div id="mediaModal" class="modal">
         <div class="media-modal-content">
             <button id="closeMediaModalBtn" class="close-button">&times;</button>
@@ -150,9 +167,17 @@
         </div>
     </div>
 
-    <script src="./js/chatbot.js"></script>
-    <script src="./js/modals.js"></script>
-    <script type="module" src="./js/pages/index.js"></script>
-    <script src="./js/gallery.js"></script>
+
+    <script type="module" src="js/sectionContent.js"></script>
+    <script type="module" src="js/petition.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/chatbot.js"></script>
+    <!-- Leaflet JS (avec intégrité spécifiée) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"integrity="sha256-20nQCchB9co0qIjGwZTOVNjQYvhXjQEWwIJOYyFXQYI="crossorigin=""></script>
+    <!-- Votre nouveau script de carte, maintenant un module -->
+    <script type="module" src="js/map.js"></script>
+    <!-- Le script principal qui gère la navigation et le chargement du contenu -->
+    <script type="module" src="js/scripts.js"></script> 
 </body>
 </html>

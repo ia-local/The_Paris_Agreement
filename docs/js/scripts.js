@@ -5,6 +5,8 @@ console.log("scripts.js chargé."); // Debugging log
 // Importe les fonctions nécessaires des modules
 import { sectionsContent } from './sectionContent.js';
 import { loadPetitionResults, setupPetitionForm } from './petition.js';
+import { initializeMap } from './map.js'; // NOUVEAU : Import de la fonction d'initialisation de la carte
+
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOMContentLoaded dans scripts.js."); // Debugging log
@@ -27,30 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetSection = document.getElementById(sectionId);
             if (targetSection && sectionId !== 'roles-overview') {
                 targetSection.innerHTML = sectionsContent[sectionId];
-                console.log(`Contenu de la section '${sectionId}' injecté dans le DOM.`);
+                console.log(`Contenu de la section '${sectionId}' injecté.`);
             }
         }
     }
 
     /**
-     * Affiche la section de contenu spécifiée et masque les autres.
+     * Affiche une section de contenu spécifique et masque les autres.
      * @param {string} sectionId - L'ID de la section à afficher.
      */
     function showContentSection(sectionId) {
-        // Masquer toutes les sections
         allContentSections.forEach(section => {
             section.classList.remove('active');
+            section.classList.add('hidden'); // Assurez-vous que cette classe est définie dans votre CSS pour masquer
         });
 
-        // Afficher la section demandée
         const targetSection = document.getElementById(sectionId);
         if (targetSection) {
             targetSection.classList.add('active');
-            console.log(`Section '${sectionId}' rendue active.`);
-        } else {
-            console.error(`Erreur: La section avec l'ID '${sectionId}' est introuvable dans le DOM.`);
-        }
-
+            targetSection.classList.remove('hidden'); // Rendre visible
         // Actions spécifiques après l'affichage d'une section
         if (sectionId === 'preuves-visuelles') {
             setTimeout(() => {
@@ -65,101 +62,97 @@ document.addEventListener('DOMContentLoaded', () => {
             loadPetitionResults();
             console.log("Chargement des résultats de la pétition.");
         }
-    }
-
-    /**
-     * Active le lien de la barre latérale correspondant à la section active.
-     * @param {HTMLElement} linkElement - L'élément de lien à activer.
-     */
-    function activateSidebarLink(linkElement) {
-        // Désactiver tous les liens de la barre latérale
-        sidebarLinks.forEach(link => {
-            link.classList.remove('active');
-        });
-        // Activer le lien cliqué
-        if (linkElement) {
-            linkElement.classList.add('active');
-            console.log(`Lien de la barre latérale '${linkElement.textContent}' activé.`);
+            // NOUVEAU : Si la section est 'observations-discrepances', initialiser la carte
+            if (sectionId === 'observations-discrepances') {
+                console.log("Initialisation de la carte dans la section 'observations-discrepances'.");
+                initializeMap(); // Appel de la fonction d'initialisation de la carte
+            }
         } else {
-            console.warn("Element de lien de la barre latérale est null lors de l'activation.");
+            console.error(`Section avec l'ID '${sectionId}' introuvable.`);
         }
     }
 
     /**
-     * Active le lien de la navigation principale correspondant à la page/section active.
-     * @param {string} dataPageIdentifier - L'identifiant 'data-page' du lien principal à activer.
+     * Active le lien de la barre latérale correspondant à la section affichée.
+     * @param {HTMLElement} activeLink - Le lien de la barre latérale à activer.
      */
-    function activateMainNavLink(dataPageIdentifier) {
-        mainNavLinks.forEach(navLink => {
-            navLink.classList.remove('active');
-            if (navLink.dataset.page === dataPageIdentifier) {
-                navLink.classList.add('active');
-            }
-        });
+    function activateSidebarLink(activeLink) {
+        sidebarLinks.forEach(link => link.classList.remove('active'));
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
     }
 
-    // Gestion des clics sur les liens de la barre latérale
+    /**
+     * Active le lien de navigation principal correspondant à la page ou section.
+     * @param {string} pageId - L'ID de la page (ex: 'home', 'petition-form-nav').
+     */
+    function activateMainNavLink(pageId) {
+        mainNavLinks.forEach(link => link.classList.remove('active'));
+        const targetLink = document.querySelector(`.main-nav .nav-link[data-page="${pageId}"]`);
+        if (targetLink) {
+            targetLink.classList.add('active');
+        }
+    }
+
+    // Écouteurs d'événements pour les liens de la barre latérale
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            const sectionId = link.dataset.sectionId;
-
-            // Si le lien pointe vers une autre page (comme missions.html), laisser le navigateur gérer
-            if (link.getAttribute('href') && link.getAttribute('href').endsWith('.html')) {
-                return;
+            event.preventDefault();
+            const sectionId = link.dataset.sectionId || link.getAttribute('href').substring(1);
+            showContentSection(sectionId);
+            activateSidebarLink(link);
+            // Mettre à jour le lien principal si cela correspond à une page principale
+            const mainNavLinkDataPage = link.dataset.mainNavLink || link.dataset.page; // Si un lien latéral est lié à un lien principal
+            if (mainNavLinkDataPage) {
+                activateMainNavLink(mainNavLinkDataPage);
             }
-
-            event.preventDefault(); // Empêche le défilement par défaut pour les liens internes
-            if (sectionId) {
-                showContentSection(sectionId);
-                activateSidebarLink(link);
-                // Activer le lien "Accueil du Rapport" dans la nav principale pour les sections de la sidebar
-                activateMainNavLink('home');
-            }
+            // Mettre à jour l'URL sans recharger la page
+            history.pushState(null, '', `#${sectionId}`);
         });
     });
 
-    // Gestion des clics sur les liens de navigation principaux
+    // Écouteurs d'événements pour les liens de la navigation principale
     mainNavLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            // Pour les liens qui sont des redirections directes (comme missions.html ou ai-tools.html),
-            // on ne veut PAS empêcher le comportement par défaut.
-            if (link.getAttribute('href') && link.getAttribute('href').endsWith('.html')) {
-                return; // Laisse le navigateur gérer la redirection
+            // Pour les liens qui mènent à des pages HTML séparées (ex: missions.html),
+            // on laisse le comportement par défaut du navigateur.
+            if (link.getAttribute('href').startsWith('pages/')) {
+                return; // Ne pas empêcher le comportement par défaut
             }
 
             event.preventDefault();
-            const dataPage = link.dataset.page;
-
-            // Activer le lien de navigation principal cliqué
-            activateMainNavLink(dataPage);
-
-            // Gérer l'affichage des sections en fonction du lien principal
-            if (dataPage === 'home') {
-                showContentSection('introduction'); // Affiche l'introduction
-                activateSidebarLink(document.querySelector('.sidebar-link[data-section-id="introduction"]'));
-            } else if (dataPage === 'petition-form-nav') { // Nouveau data-page ID pour le lien pétition
-                showContentSection('petition-form');
-                sidebarLinks.forEach(sidebarLink => sidebarLink.classList.remove('active')); // Désactive les liens de la sidebar
-            } else if (dataPage === 'contact-resources-nav') { // Nouveau data-page ID pour le lien contact
-                showContentSection('contact-resources');
-                sidebarLinks.forEach(sidebarLink => sidebarLink.classList.remove('active')); // Désactive les liens de la sidebar
+            const sectionId = link.getAttribute('href').substring(1);
+            showContentSection(sectionId);
+            activateMainNavLink(link.dataset.page);
+            // Désactiver tous les liens de la sidebar, sauf si la section est la page d'accueil
+            sidebarLinks.forEach(sidebarLink => sidebarLink.classList.remove('active'));
+            const correspondingSidebarLink = document.querySelector(`.sidebar-link[data-section-id="${sectionId}"]`);
+            if (correspondingSidebarLink) {
+                correspondingSidebarLink.classList.add('active');
             }
-            // La section 'roles-overview' est maintenant gérée par missions.html
+            // Mettre à jour l'URL sans recharger la page
+            history.pushState(null, '', `#${sectionId}`);
         });
     });
 
-    // Gestion des boutons d'action (Signer la Pétition, Partager une Observation)
+    // Gestion du bouton "Signer la Pétition" dans les sections
     if (goToPetitionBtn) {
         goToPetitionBtn.addEventListener('click', () => {
-            showContentSection('petition-form');
-            activateMainNavLink('petition-form-nav'); // Active le lien pétition dans la nav principale
-            sidebarLinks.forEach(sidebarLink => sidebarLink.classList.remove('active')); // Désactive les liens de la sidebar
             console.log("Bouton 'Signer la Pétition' cliqué.");
+            // Simuler un clic sur le lien de navigation principal de la pétition
+            const petitionNavLink = document.querySelector('.main-nav .nav-link[data-page="petition-form-nav"]');
+            if (petitionNavLink) {
+                petitionNavLink.click();
+            } else {
+                console.warn("Lien de navigation de la pétition introuvable.");
+            }
         });
     } else {
         console.warn("Bouton #goToPetitionBtn introuvable.");
     }
 
+    // Gestion du bouton "Partager une Observation"
     if (shareObservationBtn) {
         shareObservationBtn.addEventListener('click', () => {
             console.log("Bouton 'Partager une Observation' cliqué.");
@@ -183,9 +176,24 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("setupPetitionForm appelée.");
 
     // 3. Afficher la section "Introduction" par défaut au chargement
-    showContentSection('introduction');
-    activateSidebarLink(document.querySelector('.sidebar-link[data-section-id="introduction"]'));
-    activateMainNavLink('home');
+    // Ou la section spécifiée dans l'URL (hash)
+    const initialSectionId = window.location.hash ? window.location.hash.substring(1) : 'introduction';
+    showContentSection(initialSectionId);
+    activateSidebarLink(document.querySelector(`.sidebar-link[data-section-id="${initialSectionId}"]`));
+    // Assurez-vous que le lien de navigation principal correspondant est également actif
+    // Cela nécessite une logique pour mapper les sections aux pages principales si nécessaire
+    // Par exemple, si 'introduction' est la 'home' page
+    if (initialSectionId === 'introduction') {
+        activateMainNavLink('home');
+    } else {
+        // Logique pour activer le bon lien principal si le hash correspond à une section
+        // qui n'est pas la page d'accueil par défaut
+        const mainNavLinkForSection = document.querySelector(`.main-nav .nav-link[href="#${initialSectionId}"]`);
+        if (mainNavLinkForSection) {
+            activateMainNavLink(mainNavLinkForSection.dataset.page);
+        }
+    }
+
 
     // 4. Initialisation du chatbot UI (appelée après que le DOM est prêt)
     if (window.initializeChatbotUI && typeof window.initializeChatbotUI === 'function') {

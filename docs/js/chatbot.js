@@ -27,6 +27,68 @@ function displayMessage(message, sender) {
 }
 
 /**
+ * Ajoute des boutons de transfert à la fin de la conversation.
+ * Ces boutons permettent de transférer la conversation actuelle vers une autre persona.
+ */
+function addTransferButtons() {
+    const chatHistory = document.getElementById('chatHistory');
+    if (!chatHistory) {
+        console.error("Élément 'chatHistory' introuvable pour ajouter les boutons de transfert.");
+        return;
+    }
+
+    // Supprimer les anciens boutons de transfert s'ils existent
+    const existingButtons = chatHistory.querySelector('.transfer-buttons-container');
+    if (existingButtons) {
+        existingButtons.remove();
+    }
+
+    const transferContainer = document.createElement('div');
+    transferContainer.classList.add('transfer-buttons-container');
+
+    // Définir les personas cibles
+    const personas = [
+        { id: 'scientifique', text: 'Scientifique', page: 'scientist.html' },
+        { id: 'journaliste', text: 'Journaliste', page: 'journalist.html' },
+        { id: 'enquêteur', text: 'Enquêteur', page: 'investigator.html' },
+        { id: 'lanceur-alerte', text: 'Lanceur d\'alerte', page: 'whistleblower.html' }
+    ];
+
+    personas.forEach(persona => {
+        // Ne pas créer de bouton de transfert vers la persona active
+        if (persona.id === activePersona) {
+            return;
+        }
+
+        const button = document.createElement('button');
+        button.classList.add('transfer-btn');
+        button.textContent = `Transférer à ${persona.text}`;
+        button.dataset.targetPersona = persona.id;
+        button.title = `Transférer cette conversation à la page ${persona.text}`;
+
+        button.addEventListener('click', () => {
+            // Encode l'historique de conversation pour le passer dans l'URL
+            const encodedHistory = encodeURIComponent(JSON.stringify(conversationHistory));
+            
+            // Fermer la modale du chatbot avant de rediriger
+            if (typeof window.closeChatbotModal === 'function') {
+                window.closeChatbotModal();
+            } else {
+                console.warn("Fonction closeChatbotModal non disponible. Assurez-vous que modals.js est chargé.");
+            }
+
+            // Rediriger vers la page cible avec l'historique en paramètre d'URL
+            window.location.href = `pages/${persona.page}?conversation=${encodedHistory}`;
+        });
+        transferContainer.appendChild(button);
+    });
+
+    chatHistory.appendChild(transferContainer);
+    chatHistory.scrollTop = chatHistory.scrollHeight; // Faire défiler pour voir les boutons
+}
+
+
+/**
  * Envoie un message au chatbot (backend) et gère la réponse.
  */
 async function sendMessage() {
@@ -48,8 +110,11 @@ async function sendMessage() {
     // Ajouter le message de l'utilisateur à l'historique
     conversationHistory.push({ role: "user", content: userMessage });
 
+    // Afficher un indicateur de chargement
+    displayMessage("...", "ai-loading"); // Une classe CSS pour un loader simple
+
     try {
-        // L'endpoint est maintenant `/chatbot` et la persona est envoyée dans le corps
+        // L'endpoint est `/chatbot` et la persona est envoyée dans le corps
         const endpoint = `/chatbot`;
         console.log(`Envoi du message à l'endpoint: ${endpoint} avec persona: ${activePersona}`);
 
@@ -73,14 +138,58 @@ async function sendMessage() {
         const data = await response.json();
         const aiResponse = data.reply; // La réponse de l'IA est dans 'reply'
 
+        // Supprimer l'indicateur de chargement avant d'afficher la vraie réponse
+        const loadingMessage = document.querySelector('.ai-loading');
+        if (loadingMessage) {
+            loadingMessage.remove();
+        }
+
         displayMessage(aiResponse, 'ai');
         // Ajouter la réponse de l'IA à l'historique
         conversationHistory.push({ role: "assistant", content: aiResponse });
 
+        // AJOUT : Ajouter les boutons de transfert après la réponse de l'IA
+        addTransferButtons();
+
     } catch (error) {
         console.error('Erreur lors de l\'envoi du message au chatbot:', error);
+        // Supprimer l'indicateur de chargement en cas d'erreur
+        const loadingMessage = document.querySelector('.ai-loading');
+        if (loadingMessage) {
+            loadingMessage.remove();
+        }
         displayMessage(`Désolé, une erreur est survenue lors de la communication avec l'IA. Veuillez réessayer.`, 'ai');
     }
+}
+
+/**
+ * Efface l'historique du chat et réinitialise la conversation.
+ */
+function clearChat() {
+    const chatHistory = document.getElementById('chatHistory');
+    if (chatHistory) {
+        chatHistory.innerHTML = '';
+    }
+    conversationHistory = [];
+    activePersona = null; // Réinitialiser la persona
+
+    // Supprimer les boutons de transfert s'ils existent
+    const existingButtons = chatHistory.querySelector('.transfer-buttons-container');
+    if (existingButtons) {
+        existingButtons.remove();
+    }
+
+    // Réinitialiser l'affichage du chat avec le message de bienvenue
+    displayMessage(`Bienvenue ! Je suis votre assistant bioclimatique. Choisissez une persona pour commencer à discuter.`, "ai");
+    
+    // Désactiver visuellement les boutons de persona
+    const personaButtons = document.querySelectorAll('.persona-btn');
+    personaButtons.forEach(btn => {
+        btn.classList.remove('active-persona');
+        btn.classList.remove('bg-blue-500', 'text-white');
+        btn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+    });
+    console.log("Chat effacé et persona réinitialisée.");
 }
 
 /**
@@ -105,25 +214,7 @@ window.initializeChatbotUI = function() {
         });
     }
     if (clearChatBtn) {
-        clearChatBtn.addEventListener('click', () => {
-            conversationHistory = []; // Effacer l'historique
-            activePersona = null; // Réinitialiser la persona
-            // Réinitialiser l'affichage du chat
-            if (chatHistory) {
-                chatHistory.innerHTML = `
-                    <div class="ai-message message">
-                        <p>Bienvenue ! Je suis votre assistant bioclimatique. Choisissez une persona pour commencer à discuter.</p>
-                    </div>
-                `;
-            }
-            // Désactiver visuellement les boutons de persona
-            personaButtons.forEach(btn => {
-                btn.classList.remove('active-persona');
-                btn.classList.remove('bg-blue-500', 'text-white');
-                btn.classList.add('bg-gray-200', 'hover:bg-gray-300');
-            });
-            console.log("Chat effacé et persona réinitialisée.");
-        });
+        clearChatBtn.addEventListener('click', clearChat);
     }
 
     personaButtons.forEach(button => {
@@ -149,6 +240,12 @@ window.initializeChatbotUI = function() {
             button.classList.add('bg-blue-500', 'text-white');
 
             displayMessage(`Vous discutez maintenant en tant que "${button.textContent}". Comment puis-je vous aider ?`, "ai");
+
+            // Supprimer les boutons de transfert s'ils existent lors du changement de persona
+            const existingButtons = chatHistory.querySelector('.transfer-buttons-container');
+            if (existingButtons) {
+                existingButtons.remove();
+            }
         });
     });
 
