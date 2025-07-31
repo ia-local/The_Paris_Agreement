@@ -11,7 +11,7 @@ export const sectionsContent = {
             Bienvenue sur cette plateforme dédiée au <span class="highlight-keyword">Suivi Bioclimatique et aux Témoignages</span> de la <span class="highlight-event">Catastrophe Annoncée</span>. Depuis le <span class="highlight-date">1er mai 2025</span>, nous observons et documentons une série d'événements climatiques et environnementaux anormaux, dont la fréquence et l'intensité soulèvent de sérieuses questions sur les dérèglements en cours.
         </p>
         <p class="alert-text">
-            <span class="highlight-date">Alerte : Le 20 juin 2025, à 10h30 CEST,</span> des observations ont révélé des <span class="highlight-event">injections massives d'aérosols stratosphériques (IAS)</span>, potentiellement à base d'<span class="highlight-keyword">iodure d'argent</span>, débutant à <span class="highlight-date">8h00</span>. En l'espace de <span class="highlight-event">2h30</span>, cette couverture atmosphérique s'est propagée de la <span class="highlight-keyword">Bretagne</span> aux régions de <span class="highlight-keyword">Normandie</span>, l'<span class="highlight-keyword">Île-de-France</span>, les <span class="highlight-keyword">Hauts-de-France</span> et le <span class="highlight-keyword">Grand Est</span>. Ces phénomènes coïncident avec la <span class="highlight-event">canicule "Henrion 40°C"</span> en cours et sont associés à des **dérèglements thermiques** (chaud/froid) et une **augmentation de l'humidité**, favorisant la **prolifération d'insectes et bactéries**. Une surveillance continue est maintenue pour évaluer l'évolution de cette situation.
+            <span class="highlight-date">Alerte : Le 20 juin 2025, à 10h30 CEST,</span> des observations ont révélé des <span class="highlight-event">injections massives d'aérosols stratosphériques (IAS)</span>, potentiellement à base d'<span class="highlight-keyword">iodure d'argent</span>, débutant à <span class="highlight-date">8h00</span>. En l'espace de <span class="highlight-event">2h30</span>, cette couverture atmosphérique s'est propagée de la <span class="highlight-keyword">Bretagne</span> aux régions de <span class="highlight-keyword">Normandie</span>, l'<span class="highlight-keyword">Île-de-France</span>, les <span class="highlight-keyword">Hauts-de-France</span> et le <span class="highlight-keyword">Grand Est</span>, coïncidant avec la <span class="highlight-event">canicule "Henrion 40°C"</span> en cours. Une surveillance continue est maintenue pour évaluer l'évolution de cette situation.
         </p>
         <img src="intro.jpeg" alt="[Image principale du rapport]" class="content-image">
         <p class="image-caption">Image illustrative des phénomènes atmosphériques observés.</p>
@@ -24,6 +24,12 @@ export const sectionsContent = {
         <p>
             Cette section détaille les événements marquants et les observations critiques qui ont jalonné la période de suivi, mettant en lumière l'accélération des phénomènes anormaux.
         </p>
+        <h3 class="subsection-title">Été 2024 : Premières Observations Alarmantes</h3>
+        <ul class="event-list">
+            <li>
+                <span class="highlight-date">Juillet 2024 :</span> <span class="highlight-event">Activité Aérienne Suspecte et Oiseaux Morts à Colombelles (Normandie)</span>. Observations d'activité aérienne suspecte et formation de nuages artificiels près du rond-point de Lazaro. Des traces biochimiques clairement visibles laissées par les avions ont été photographiées. En fin d'après-midi, des oiseaux morts ont été retrouvés sur le bord de la route, suggérant un lien avec les pulvérisations chimiques. Cet événement met en évidence une récurrence des phénomènes liés à la géo-ingénierie et ses impacts sur la faune.
+            </li>
+        </ul>
         <h3 class="subsection-title">Mai 2025 : Premiers Signes Inquiétants</h3>
         <ul class="event-list">
             <li>
@@ -97,9 +103,51 @@ export const sectionsContent = {
                 </ul>
             </li>
             <li>
+                <span class="highlight-date">21 Juillet 2025 :</span> <span class="highlight-event">Tornade à Miramas (Bouches-du-Rhône)</span>. Une tornade a été observée dans la commune de Miramas, soulevant des questions sur la récidive des phénomènes météorologiques extrêmes liés aux activités aériennes suspectes et aux injections d'aérosols stratosphériques.
+            </li>
+            <li>
+                <span class="highlight-date">22 Juillet 2025 :</span> <span class="highlight-event">Inondation Éclair dans l'Aisne</span>. Une ville de l'Aisne a été inondée en quelques minutes suite à de fortes précipitations. L'événement a été diffusé sur TF1.
+            </li>
+            <li>
                 <span class="highlight-date">23 Juillet 2025 :</span> <span class="highlight-event">Récidive d'Injections Aériennes Suspectes et Conséquences Bioclimatiques</span>. Observations d'activités récurrentes d'injections d'aérosols stratosphériques (géo-ingénierie) impliquant des avions de type Boeing Dreamliner et des bombardiers américains. Ces opérations seraient gérées par l'armée française sous l'autorité du Chef d'État, en lien avec l'Article 49 alinéa 3 de la Constitution pour la régulation de la température. Conséquences immédiates et anticipées : inondations (prévues pour ce soir, demain et tout le week-end), prolifération d'insectes, et grêlons de forme anormale (ressemblant à des cristaux de glace 'armes'). Le témoin certifie être sûr de ces observations.
             </li>
-        </ul>`,
+            <li>
+                <span class="highlight-date">28 Juillet 2025 :</span>
+                <ul class="event-list" style="margin-left: 20px;">
+                    <li><span class="highlight-keyword">14h00 CEST :</span> Premières observations de pulvérisations aériennes suspectes (géo-ingénierie), potentiellement à base de <span class="highlight-keyword">soufre</span> et de <span class="highlight-keyword">calcite</span>, au-dessus de la <span class="highlight-keyword">Normandie</span>.</li>
+                    <li><span class="highlight-keyword">Prévision (dans quelques heures) :</span> Attente d'un lancement de "pseudo nuages" à base d'<span class="highlight-keyword">iodure d'argent</span>, basé sur l'expertise et les observations continues.</li>
+                    <li><span class="highlight-keyword">Observations continues :</span> Poursuite des observations et prises de photos tout au long de la journée.</li>
+                </ul>
+            </li>
+            <li>
+                <span class="highlight-date">29 Juillet 2025 :</span>
+                <ul class="event-list" style="margin-left: 20px;">
+                    <li><span class="highlight-keyword">Journée entière :</span> Poursuite des pulvérisations aériennes, principalement d'<span class="highlight-keyword">iodure d'argent</span>, entraînant la formation de nuages artificiels et des précipitations.</li>
+                    <li><span class="highlight-event">Conséquences Observées :</span> Pluie persistante, baisse notable de la température, et conditions météorologiques très instables (alternance rapide entre ciel bleu et nuages noirs). Observation d'agrégats de cristaux de glace ressemblant à des grêlons, mais de nature chimique.</li>
+                    <li><span class="highlight-event">Impact sur la faune :</span> Signalements de plus de <span class="highlight-keyword">8000 oiseaux morts dans le Marais de Brière (Bretagne)</span>, suite à l'inhalation de ces agrégats chimiques.</li>
+                </ul>
+            </li>
+            <li>
+                <span class="highlight-date">30 Juillet 2025 :</span>
+                <ul class="event-list" style="margin-left: 20px;">
+                    <li><span class="highlight-event">Prolifération Anormale de Champignons</span>. Observation inattendue de champignons sur le bord de la route en plein été, documentée par des photos. Cet événement est une nouvelle preuve de la prolifération biologique anormale, potentiellement liée aux dérèglements climatiques et aux conditions d'humidité créées par la géo-ingénierie et les injections d'aérosols stratosphériques.</li>
+                    <li><span class="highlight-event">Tsunami Majeur au Kamtchatka (Russie)</span>. Un puissant séisme de magnitude 8.8 a frappé au large de la péninsule du Kamtchatka, déclenchant un tsunami majeur avec des vagues de plusieurs mètres, causant des dégâts et des blessures. Cet événement souligne l'instabilité géologique et les conséquences potentiellement amplifiées des dérèglements climatiques globaux.</li>
+                </ul>
+            </li>
+        </ul>
+        <h3 class="subsection-title">Observations Continues :</h3>
+        <ul class="event-list">
+            <li>
+                <span class="highlight-keyword">Persistance de nuages artificiels :</span> Maintien d'une couverture nuageuse d'apparence non naturelle, affectant la luminosité et la perception du ciel.
+            </li>
+            <li>
+                <span class="highlight-keyword">Anomalies de précipitations :</span> Alternance de périodes de sécheresse intense et d'épisodes de pluies diluviennes, souvent localisés.
+            </li>
+            <li>
+                <span class="highlight-keyword">Dégradation de la qualité de l'air :</span> Signalements accrus de problèmes respiratoires et d'irritations oculaires, potentiellement liés aux aérosols atmosphériques.
+            </li>
+        </ul>
+    `,
     "preuves-visuelles": `
         <h2 class="section-title">Preuves Visuelles : Galerie d'Observations 📸</h2>
         <p>
@@ -213,11 +261,11 @@ export const sectionsContent = {
         <p class="mt-4 alert-text">
             <span class="font-bold">Aggravation des Risques :</span> L'utilisation combinée de ces substances, en particulier l'ajout de **sulfure d'arsenic** aux pratiques existantes, amplifie exponentiellement les dangers. Une intervention qui chercherait à la fois à refroidir l'atmosphère et à manipuler les précipitations (par exemple, en créant des grêlons ou de la neige contaminés par l'arsenic) serait une forme très efficace de dissémination d'un poison systémique à l'échelle planétaire, avec des conséquences imprévisibles et potentiellement catastrophiques pour tous les écosystèmes et la vie sur Terre.
             <br><br>
-            <span class="font-bold text-red-700">Le dérèglement climatique, combiné aux injections stratosphériques qui créent un 'yo-yo' thermique (chaud/froid) et augmentent l'humidité, favorise un environnement idéal pour la prolifération des champignons, des bactéries et surtout des insectes. Cette augmentation de la pression atmosphérique due au 'plafond toxique' à basse altitude (et non 25km) exacerbe ces conditions, créant un cercle vicieux de risques sanitaires et environnementaux.</span>
+            <span class="font-bold text-red-700">Le dérèglement climatique, combiné aux injections stratosphériques qui créent un 'yo-yo' thermique (alternance rapide de chaud et de froid) et augmentent l'humidité, favorise un environnement idéal pour la prolifération des champignons, des bactéries et surtout des insectes. La présence d'un 'plafond toxique' à basse altitude, résultant de l'augmentation de la pression atmosphérique due aux aérosols (principalement argent et calcite), piège cette humidité et ces agents biologiques, créant un cercle vicieux de risques sanitaires et environnementaux.</span>
         </p>
     `,
     "reglementation-geoingenierie": `
-        <h2 class="section-title">Accords de Paris et Réglementation de la Géo-ingénierie ⚖️📜</h2>
+ <h2 class="section-title">Accords de Paris et Réglementation de la Géo-ingénierie ⚖️📜</h2>
         <p>
             Le cadre juridique international et les accords climatiques existants peinent à encadrer les pratiques de géo-ingénierie, laissant un vide réglementaire potentiellement dangereux.
         </p>
@@ -233,6 +281,11 @@ export const sectionsContent = {
                 <span class="highlight-event">Manque de Réglementation Spécifique :</span> Les Accords de Paris ne mentionnent pas explicitement la géo-ingénierie. Cela crée une zone grise où les États pourraient être tentés d'explorer ces technologies sans cadre légal clair ni surveillance internationale.
             </li>
         </ul>
+        <h4 class="subsection-title">Abrogation de "l'Accord de Paris" par Donald Trump</h4>
+        <p class="ml-6">
+            Donald Trump a décidé de retirer les États-Unis de l'Accord de Paris à deux reprises. La première fois, en 2017, il a annoncé la sortie du pays du pacte international visant à limiter le réchauffement climatique à moins de 2°C, avec des efforts pour rester en dessous de 1,5°C. Cette décision a été effective après un processus de retrait qui a duré près de quatre ans. La seconde fois, en 2025, Trump a de nouveau signé un ordre pour entamer le processus de retrait, déclarant que l’accord était une "escroquerie" imposant des charges injustes à l’économie américaine, tout en affirmant vouloir renforcer la production de combustibles fossiles et réduire les réglementations environnementales.
+            Ce retrait a été effectué rapidement, sans respecter la période de préavis d’un an prévue par l’accord, ce qui a suscité de vives critiques au niveau international. La décision de Trump a été perçue comme un recul pour les efforts mondiaux de lutte contre le changement climatique, en particulier étant donné que les États-Unis sont le deuxième plus grand émetteur mondial de gaz à effet de serre.
+        </p>
         <h3 class="subsection-title">Le Protocole de Kyoto (1997) :</h3>
         <ul class="event-list">
             <li>
@@ -340,24 +393,14 @@ export const sectionsContent = {
                 <span class="highlight-event">Stress psychologique :</span> L'incertitude climatique, la perception de manipulations non transparentes et la dégradation de l'environnement génèrent un stress, de l'anxiété et des troubles du sommeil au sein de la population.
             </li>
         </ul>
-
         <h3 class="subsection-title">Risques FAMINE et Prolifération Biologique :</h3>
-            <ul class="event-list">
-            <li><span class="highlight-event">Risque de Famine et Impact sur la Photosynthèse</span> Un des risques les plus critiques est la création d'un "plafond stratosphérique" artificiel. Ce voile de particules chimiques dans la stratosphère modifie la composition du rayonnement solaire qui atteint la Terre. Il <span class="highlight-event">empêche les plantes de se nourrir correctement</span>. En effet, les rayons du soleil contiennent des nutriments essentiels à la photosynthèse, tels que le sodium et le magnésium. La diminution ou la modification de ces spectres lumineux vitaux entrave la croissance et le développement des plantes, réduisant ainsi la productivité agricole et augmentant le <span class="highlight-keyword">risque de famine</span>.
-            Bien que ces produits chimiques puissent être présentés comme des solutions pour faire baisser la température globale (en accord avec des objectifs superficiels, potentiellement inspirés par des accords comme l'Accord de Paris), la réalité est qu'ils engendrent une <span class="highlight-event">catastrophe bioclimatique</span> multifacette. La famine, l'usage accru de pesticides pour compenser les pertes agricoles, et l'intensification des inondations dues aux perturbations du cycle de l'eau sont autant de conséquences directes et interconnectées de ces interventions non maîtrisées.
-        </li>
-        <li>
-            <span class="highlight-event">Contamination de la chaîne alimentaire, intoxication et famine :</span> Les retombées de produits chimiques issus de la géo-ingénierie (comme l'iodure d'argent, la calcite, le soufre, l'arsenic) et l'usage à outrance de pesticides (fongicides, insecticides, herbicides, et les nouveaux introduits par décret comme l'acétamipride, le sulfoxaflor et le flupyradifuron) depuis des années, aggravé par la "Loi Duplomb", contaminent les sols agricoles et les sources d'eau. L'arsenic, par exemple, serait absorbé par les plantes (ex: salade) et les animaux d'élevage, bioaccumulant le long de la chaîne alimentaire. Cela rendrait les cultures impropres à la consommation, menaçant la sécurité alimentaire et pouvant potentiellement entraîner des famines et des intoxications alimentaires massives.
-        </li>
-        </ul>
-        <h3 class="subsection-title">Prolifération des Insectes</h3>
         <ul class="event-list">
-        <li>
-            Un autre risque grave est la <span class="highlight-event">prolifération des insectes</span>. Les perturbations climatiques, y compris les changements de température et d'humidité induits par la géo-ingénierie, peuvent créer des conditions favorables à l'explosion de populations d'insectes nuisibles, avec des conséquences dévastatrices pour l'agriculture, la santé humaine et les écosystèmes.
-        </li>
-        <li>
-            <span class="highlight-event">Prolifération des champignons, bactéries et insectes :</span> Les dérèglements climatiques induits par la géo-ingénierie, caractérisés par un "yo-yo" thermique (alternance rapide de chaud et de froid) et une augmentation significative du taux d'humidité, créent un environnement idéal pour le développement rapide et la multiplication des champignons, des bactéries et des insectes. La présence d'un "plafond toxique" à basse altitude, résultant de l'augmentation de la pression atmosphérique due aux aérosols (principalement argent et calcite), piège cette humidité et ces agents biologiques. Cette prolifération massive peut dévaster les cultures, réduire drastiquement les rendements agricoles et augmenter le risque de maladies transmises par ces vecteurs, aggravant ainsi le risque de famine et d'intoxication. Les grêlons à base de cristaux d'argent, plus solides et dangereux, contribuent également à la dissémination de ces substances toxiques.
-        </li>
+            <li>
+                <span class="highlight-event">Contamination de la chaîne alimentaire, intoxication et famine :</span> Les retombées de produits chimiques issus de la géo-ingénierie (comme l'iodure d'argent, la calcite, le soufre, l'arsenic) et l'usage à outrance de pesticides (fongicides, insecticides, herbicides, et les nouveaux introduits par décret comme l'acétamipride, le sulfoxaflor et le flupyradifuron) depuis des années, aggravé par la "Loi Duplomb", contaminent les sols agricoles et les sources d'eau. L'arsenic, par exemple, serait absorbé par les plantes (ex: salade) et les animaux d'élevage, bioaccumulant le long de la chaîne alimentaire. Cela rendrait les cultures impropres à la consommation, menaçant la sécurité alimentaire et pouvant potentiellement entraîner des famines et des intoxications alimentaires massives.
+            </li>
+            <li>
+                <span class="highlight-event">Prolifération des champignons, bactéries et insectes :</span> Les dérèglements climatiques induits par la géo-ingénierie, caractérisés par un "yo-yo" thermique (alternance rapide de chaud et de froid) et une augmentation significative du taux d'humidité, créent un environnement idéal pour le développement rapide et la multiplication des champignons, des bactéries et des insectes. La présence d'un "plafond toxique" à basse altitude, résultant de l'augmentation de la pression atmosphérique due aux aérosols (principalement argent et calcite), piège cette humidité et ces agents biologiques, créant un cercle vicieux de risques sanitaires et environnementaux. Les grêlons à base de cristaux d'argent, plus solides et dangereux, contribuent également à la dissémination de ces substances toxiques. De plus, le plafond stratosphérique formé par l'iodure d'argent, la calcite et le soufre, empêche les plantes de se nourrir correctement des rayons du soleil (sodium, magnésium essentiels à la photosynthèse), entravant leur croissance et augmentant le risque de famine. <span class="font-bold text-red-700">L'apparition inattendue de champignons en plein été est une illustration concrète de cette prolifération biologique anormale, favorisée par les conditions environnementales modifiées.</span>
+            </li>
         </ul>
         <h3 class="subsection-title">Risques Environnementaux :</h3>
         <ul class="event-list">
@@ -397,6 +440,14 @@ export const sectionsContent = {
         <h2 class="section-title">Démonstration : Visualisation des Anomalies en Temps Réel 📡📊</h2>
         <p>
             Cette section est dédiée à la visualisation dynamique des données collectées, offrant un aperçu en temps réel des phénomènes aériens et météorologiques anormaux, ainsi que des anomalies détectées par nos systèmes.
+        </p>
+        <h3 class="subsection-title">Observation du 28 au 30 Juillet 2025 : De l'Azur aux Précipitations Artificielles Récidivantes et Prolifération Biologique</h3>
+        <p>
+            En début de matinée du 28 juillet, le ciel était d'un bleu immaculé. Vers 14h00 CEST, des observations ont révélé des <span class="highlight-event">pulvérisations aériennes suspectes</span>, indiquant des injections d'aérosols stratosphériques, principalement à base de <span class="highlight-keyword">soufre</span> et de <span class="highlight-keyword">calcite</span>. Ces opérations ont été suivies, le 29 juillet, par la pulvérisation d'<span class="highlight-keyword">iodure d'argent</span>. Ces composés chimiques, issus de ces injections, provoquent la cristallisation de la vapeur d'eau, menant à des précipitations artificielles et à la formation de <span class="highlight-event">cristaux de glace agrégés</span> (ressemblant à des grêlons, mais de nature chimique). Le résultat est une météo très instable, alternant rapidement entre ciel bleu et nuages noirs, avec des pluies récurrentes et une baisse de température significative. Ces observations sont étayées par des <span class="highlight-keyword">preuves photographiques</span>.
+            <br><br>
+            Aujourd'hui, 30 juillet, l'observation inattendue de <span class="highlight-event">champignons sur le bord de la route en plein été</span> renforce les préoccupations concernant la prolifération biologique anormale, directement liée aux conditions environnementales modifiées par la géo-ingénierie.
+            <br><br>
+            Ces événements locaux s'inscrivent dans un contexte mondial d'intensification des catastrophes, comme en témoigne le <span class="highlight-event">tsunami majeur qui a frappé la péninsule du Kamtchatka</span> le 30 juillet, suite à un puissant séisme.
         </p>
         <h3 class="subsection-title">Flux Aérien (FlightRadar24-like) :</h3>
         <p>
@@ -521,10 +572,6 @@ export const sectionsContent = {
             <div>
                 <label for="userEmail">Adresse E-mail :</label>
                 <input type="email" id="userEmail" name="userEmail" required placeholder="votre.email@exemple.com">
-            </div>
-            <div>
-                <label for="userComment">Votre Message / Témoignage (facultatif) :</label>
-                <textarea id="userComment" name="userComment" rows="5"></textarea>
             </div>
             <div>
                 <input type="checkbox" id="supportArticle38" name="supportArticle38" value="true">

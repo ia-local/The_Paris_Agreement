@@ -318,5 +318,76 @@
     "longitude": 1.2067,
     "timestamp": "2025-07-23T15:00:00Z",
     "description": "Récidive d'injections d'aérosols stratosphériques (géo-ingénierie) observées au-dessus d'Évreux-Fauville Air Base. Implication de Boeing Dreamliner et bombardiers américains, gérés par l'armée française. Concomitant avec des inondations prévues, prolifération d'insectes et grêlons anormaux (cristaux d'argent)."
+  },
+  {
+    "id": "evt-20250722-it-orbetello-insectes",
+    "title": "Invasion Massive d'Insectes - Orbetello, Italie",
+    "type": "proliferation_insectes_geo_ingenierie",
+    "location": "Orbetello, Italie",
+    "latitude": 42.4428,
+    "longitude": 11.2247,
+    "timestamp": "2025-07-22T10:00:00Z",
+    "description": "Nuages d'insectes observés à Orbetello. Cet événement est lié aux dérèglements climatiques induits par la géo-ingénierie et les injections d'aérosols stratosphériques (iodure d'argent, calcite, soufre) visant la régulation de la température, mais favorisant la prolifération biologique."
+  },
+  {
+    "id": "evt-20250722-fr-aisne-inondation",
+    "title": "Inondation Éclair - Aisne, France",
+    "type": "inondation",
+    "location": "Aisne, France",
+    "latitude": 49.5000,
+    "longitude": 3.5000,
+    "timestamp": "2025-07-22T18:00:00Z",
+    "description": "Une ville de l'Aisne a été inondée en quelques minutes suite à de fortes précipitations. L'événement a été diffusé sur TF1."
+  },
+  {
+    "id": "evt-20250721-fr-miramas-tornade",
+    "title": "Tornade - Miramas, Bouches-du-Rhône, France",
+    "type": "tornade",
+    "location": "Miramas, Bouches-du-Rhône, France",
+    "latitude": 43.583,
+    "longitude": 5.001,
+    "timestamp": "2025-07-21T16:00:00Z",
+    "description": "Une tornade a été observée dans la commune de Miramas, soulevant des questions sur la récidive des phénomènes météorologiques extrêmes liés aux activités aériennes suspectes et aux injections d'aérosols stratosphériques."
+  },
+  {
+    "id": "evt-20250729-fr-briere-oiseaux",
+    "title": "Mortalité Massive d'Oiseaux - Marais de Brière, Bretagne, France",
+    "type": "impact_faune_chimique",
+    "location": "Marais de Brière, Bretagne, France",
+    "latitude": 47.3833,
+    "longitude": -2.2000,
+    "timestamp": "2025-07-29T17:00:00Z",
+    "description": "Plus de 8000 oiseaux (dont des canards) retrouvés morts dans le Marais de Brière. Les analyses préliminaires suggèrent une intoxication due à l'inhalation d'agrégats chimiques résultant des injections d'aérosols stratosphériques (iodure d'argent, soufre, calcite) visant à manipuler le climat. Cet événement souligne la gravité de la récidive des activités de géo-ingénierie et leurs conséquences dévastatrices sur la faune et l'environnement.",
+    "videoUrl": "/media/briere_oiseaux_morts_20250729.mp4"
+  },
+  {
+    "id": "evt-202407-fr-colombelles",
+    "title": "Activité Aérienne Suspecte et Oiseaux Morts - Colombelles, Normandie, France",
+    "type": "geo_ingenierie_aerienne_impact_faune",
+    "location": "Colombelles, Normandie, France",
+    "latitude": 49.204,
+    "longitude": -0.3,
+    "timestamp": "2024-07-XXT18:00:00Z",
+    "description": "Observations d'activité aérienne suspecte et formation de nuages artificiels près du rond-point de Lazaro. Des traces biochimiques clairement visibles laissées par les avions ont été photographiées. En fin d'après-midi, des oiseaux morts ont été retrouvés sur le bord de la route, suggérant un lien avec les pulvérisations chimiques. Cet événement de l'été 2024 met en évidence une récurrence des phénomènes liés à la géo-ingénierie et ses impacts sur la faune."
+  },
+  {
+    "id": "evt-20250730-fr-champignons",
+    "title": "Prolifération Anormale de Champignons - France",
+    "type": "proliferation_biologique",
+    "location": "France",
+    "latitude": 46.603354,
+    "longitude": 1.888334,
+    "timestamp": "2025-07-30T15:00:00Z",
+    "description": "Observation inattendue de champignons sur le bord de la route en plein été, documentée par des photos. Cet événement est une nouvelle preuve de la prolifération biologique anormale, potentiellement liée aux dérèglements climatiques et aux conditions d'humidité créées par la géo-ingénierie et les injections d'aérosols stratosphériques."
+  },
+  {
+    "id": "evt-20250730-ru-kamchatka-tsunami",
+    "title": "Tsunami majeur - Péninsule du Kamtchatka, Russie",
+    "type": "tsunami",
+    "location": "Péninsule du Kamtchatka, Russie",
+    "latitude": 52.473,
+    "longitude": 160.396,
+    "timestamp": "2025-07-30T00:24:50Z",
+    "description": "Un puissant séisme de magnitude 8.8 a frappé au large de la péninsule du Kamtchatka, déclenchant un tsunami majeur. Des vagues de plusieurs mètres ont été observées, causant des dégâts et des blessures dans la région. Cet événement souligne l'instabilité géologique et les conséquences potentiellement amplifiées des dérèglements climatiques globaux."
   }
 ]
