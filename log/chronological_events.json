@@ -389,5 +389,15 @@
     "longitude": 160.396,
     "timestamp": "2025-07-30T00:24:50Z",
     "description": "Un puissant séisme de magnitude 8.8 a frappé au large de la péninsule du Kamtchatka, déclenchant un tsunami majeur. Des vagues de plusieurs mètres ont été observées, causant des dégâts et des blessures dans la région. Cet événement souligne l'instabilité géologique et les conséquences potentiellement amplifiées des dérèglements climatiques globaux."
+  },
+    {
+    "id": "evt-20250724-es-grele-geante",
+    "title": "Grêle Géante - Barcelone et Albacete, Espagne",
+    "type": "grele_geante",
+    "location": "Barcelone, Espagne",
+    "latitude": 41.3850639,
+    "longitude": 2.1734035,
+    "timestamp": "2025-07-24T18:00:00Z",
+    "description": "Des grêlons de très grande taille ont dévasté des zones de Barcelone et d'Albacete, causant d'importants dégâts matériels. Cet événement s'inscrit dans la série de phénomènes météorologiques extrêmes observés en Europe, potentiellement liés aux dérèglements climatiques et aux activités de géo-ingénierie."
   }
 ]
